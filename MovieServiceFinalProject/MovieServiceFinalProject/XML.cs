@@ -20,7 +20,7 @@ namespace MovieServiceFinalProject
     {
         //private string sourcefile { get; set; }
         //private string xsltfile { get; set; }
-        private string destinationfile { get; set; }
+        private string Destinationfile { get; set; }
     
     public  XML(string sourcefile,string xsltfile,string destination)
         {
@@ -28,7 +28,7 @@ namespace MovieServiceFinalProject
            // this.sourcefile = sourcefile; 
                 
             
-            FileStream fist = new FileStream(destinationfile, FileMode.Create);
+            FileStream fist = new FileStream(Destinationfile, FileMode.Create);
             XslCompiledTransform xct = new XslCompiledTransform();
             xct.Load(xsltfile);
             xct.Transform(sourcefile, null, fist);
