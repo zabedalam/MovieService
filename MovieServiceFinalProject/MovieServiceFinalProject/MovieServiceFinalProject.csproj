@@ -70,9 +70,10 @@
     <Content Include="MyFiles\titanic.jpg" />
     <Content Include="SearchIndex.aspx" />
     <Content Include="Web.config" />
+    <Content Include="XMLCommercial.xml" />
+    <Content Include="XSLTCommercial.xslt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OMDBAPI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchIndex.aspx.cs">
       <DependentUpon>SearchIndex.aspx</DependentUpon>
@@ -82,6 +83,7 @@
       <DependentUpon>SearchIndex.aspx</DependentUpon>
     </Compile>
     <Compile Include="Token.cs" />
+    <Compile Include="XML.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
