@@ -18,6 +18,9 @@
             <asp:Label ID="LabelResult" runat="server" Text="Result"></asp:Label>
             <br />
             <asp:Image ID="ImagePoster" runat="server" Height="302px" ImageUrl="~/MyFiles/titanic.jpg" Width="399px" />
+            <br />
+            <br />
+            <asp:Xml ID="XmltoXmlCommercial" runat="server" DocumentSource="~/XMLCommercial.xml" TransformSource="~/XSLTCommercial.xslt"></asp:Xml>
         </div>
     </form>
 </body>

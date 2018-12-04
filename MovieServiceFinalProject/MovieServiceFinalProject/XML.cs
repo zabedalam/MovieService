@@ -11,21 +11,23 @@ using System.Data;
 using System.Net;
 
 
+
+
+
 namespace MovieServiceFinalProject
 {
     public class XML
     {
-        private string sourcefile { get; set; }
-        private string xsltfile { get; set; }
-        private string destinationfile { get; set; 
-    }
-    public  XML()
+        //private string sourcefile { get; set; }
+        //private string xsltfile { get; set; }
+        private string destinationfile { get; set; }
+    
+    public  XML(string sourcefile,string xsltfile,string destination)
         {
             // If the XML uses a namespace, the XSLT must refer to this namespace
-            string sourcefile = Server.MapPath("XMLCommercial.xml");
-            string xsltfile = Server.MapPath("XMLCommercial.xslt");
-            string destinationfile = Server.MapPath("XMLCommercialTransformed.xml");
-
+           // this.sourcefile = sourcefile; 
+                
+            
             FileStream fist = new FileStream(destinationfile, FileMode.Create);
             XslCompiledTransform xct = new XslCompiledTransform();
             xct.Load(xsltfile);
