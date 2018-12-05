@@ -42,6 +42,7 @@ namespace MovieServiceFinalProject
 
             if (doc.SelectSingleNode("/root/@response").InnerText == "True")
             {
+                LabelMessage.Text = "Movie found";
                 XmlNodeList nodelist = doc.SelectNodes("/root/movie");
                 foreach (XmlNode node in nodelist)
                 {
@@ -61,7 +62,7 @@ namespace MovieServiceFinalProject
             {
                 LabelMessage.Text = "Movie not found";
                 ImagePoster.ImageUrl = "~/MyFiles/titanic.jpg";
-                LabelResult.Text = "Result";
+                //LabelResult.Text = "Result";
             }
         }
 
