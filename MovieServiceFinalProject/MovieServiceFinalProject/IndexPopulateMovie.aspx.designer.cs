@@ -10,7 +10,7 @@
 namespace MovieServiceFinalProject {
     
     
-    public partial class SearchIndex {
+    public partial class IndexPopulateMovie {
         
         /// <summary>
         /// form1 control.
@@ -22,40 +22,22 @@ namespace MovieServiceFinalProject {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// TextBoxSearch control.
+        /// ButtonActionMovie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxSearch;
+        protected global::System.Web.UI.WebControls.Button ButtonActionMovie;
         
         /// <summary>
-        /// ButtonSearch control.
+        /// ButtonAnimationMovie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonSearch;
-        
-        /// <summary>
-        /// ButtonMovieAction control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonMovieAction;
-        
-        /// <summary>
-        /// ButtonAnimation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAnimation;
+        protected global::System.Web.UI.WebControls.Button ButtonAnimationMovie;
         
         /// <summary>
         /// ButtonThrillerMovie control.
@@ -76,22 +58,40 @@ namespace MovieServiceFinalProject {
         protected global::System.Web.UI.WebControls.Button ButtonScienceFictionMovie;
         
         /// <summary>
-        /// LabelMessage control.
+        /// ListBoxPopulateMovie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelMessage;
+        protected global::System.Web.UI.WebControls.ListBox ListBoxPopulateMovie;
         
         /// <summary>
-        /// LabelResult control.
+        /// ButtonFindMovie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelResult;
+        protected global::System.Web.UI.WebControls.Button ButtonFindMovie;
+        
+        /// <summary>
+        /// LabelMovieInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelMovieInfo;
+        
+        /// <summary>
+        /// LabelRatings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelRatings;
         
         /// <summary>
         /// LabelYear control.
@@ -130,21 +130,21 @@ namespace MovieServiceFinalProject {
         protected global::System.Web.UI.WebControls.Label LabelWriter;
         
         /// <summary>
-        /// ImagePoster control.
+        /// Image1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImagePoster;
+        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
-        /// XmltoXmlCommercial control.
+        /// LabelMessages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Xml XmltoXmlCommercial;
+        protected global::System.Web.UI.WebControls.Label LabelMessages;
     }
 }
