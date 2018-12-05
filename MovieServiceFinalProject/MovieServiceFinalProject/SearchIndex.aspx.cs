@@ -14,7 +14,8 @@ namespace MovieServiceFinalProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Transform XSLT
+            Public static void()
         }
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
