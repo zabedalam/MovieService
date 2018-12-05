@@ -13,11 +13,17 @@
             <asp:Button ID="ButtonSearch" runat="server" OnClick="ButtonSearch_Click" Text="Search" />
             <br />
             <br />
-            <asp:Label ID="LabelMessage" runat="server" Text="Message"></asp:Label>
+            <asp:Label ID="LabelMessage" runat="server" Text="Movie Info"></asp:Label>
             <br />
             <asp:Label ID="LabelResult" runat="server" Text="Result"></asp:Label>
             <br />
             <asp:Label ID="LabelYear" runat="server" Text="Year"></asp:Label>
+            <br />
+            <asp:Label ID="LabelActors" runat="server" Text="Actors"></asp:Label>
+            <br />
+            <asp:Label ID="LabelDirector" runat="server" Text="Director"></asp:Label>
+            <br />
+            <asp:Label ID="LabelWriter" runat="server" Text="Writer"></asp:Label>
             <br />
             <asp:Image ID="ImagePoster" runat="server" Height="302px" ImageUrl="~/MyFiles/titanic.jpg" Width="399px" />
             <br />

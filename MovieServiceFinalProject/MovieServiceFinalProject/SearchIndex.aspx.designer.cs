@@ -67,6 +67,33 @@ namespace MovieServiceFinalProject {
         protected global::System.Web.UI.WebControls.Label LabelYear;
         
         /// <summary>
+        /// LabelActors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelActors;
+        
+        /// <summary>
+        /// LabelDirector control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelDirector;
+        
+        /// <summary>
+        /// LabelWriter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelWriter;
+        
+        /// <summary>
         /// ImagePoster control.
         /// </summary>
         /// <remarks>

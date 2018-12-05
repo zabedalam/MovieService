@@ -30,76 +30,10 @@ namespace MovieServiceFinalProject
 
             // substitute " " with "+"
             string myselection = TextBoxSearch.Text.Replace(' ', '+');
-            //result = client.DownloadString("http://www.omdbapi.com/?t=" + myselection + "&apikey=" + Token.token);
+            
             result = client.DownloadString("http://www.omdbapi.com/?t=" + myselection + "&r=xml&apikey=" + Token.token);
-            // File.WriteAllText(Server.MapPath("~/MyFiles/Latestresult.json"), result);
-
-            //// A simple example. Treat json as a string
-            //string[] separatingChars = { "\":\"", "\",\"", "\":[{\"", "\"},{\"", "\"}]\"", "{\"", "\"}" };
-            //string[] mysplit = result.Split(separatingChars, System.StringSplitOptions.RemoveEmptyEntries);
-
-            //if (mysplit[1] != "False")
-            //{
-            //    LabelMessage.Text = "Movie found";
-
-            //    for (int i = 0; i < mysplit.Length; i++)
-            //    {
-            //        if (mysplit[i] == "Poster")
-            //        {
-            //            ImagePoster.ImageUrl = mysplit[++i];
-            //            break;
-            //        }
-            //    }
-            //    LabelResult.Text = "Ratings : ";
-            //    for (int i = 0; i < mysplit.Length; i++)
-            //    {
-            //        if (mysplit[i] == "Ratings")
-            //        {
-            //            while (mysplit[++i] == "Source")
-            //            {
-            //                if (mysplit[i - 1] != "Ratings") LabelResult.Text += "; ";
-            //                LabelResult.Text += mysplit[i + 3] + " from " + mysplit[i + 1];
-            //                i = i + 3;
-            //            }
-            //            break;
-            //        }
-            //    }
-            //    LabelYear.Text = "Year : ";
-            //    for (int i = 0; i < mysplit.Length; i++)
-            //    {
-            //        if (mysplit[i] == "Year")
-            //        {
-            //            while (mysplit[++i] == "Source")
-            //            {
-            //                if (mysplit[i - 1] != "Year") LabelYear.Text += "; ";
-            //                LabelResult.Text += mysplit[i + 5] + " from " + mysplit[i + 1];
-            //                i = i + 5;
-            //            }
-            //            break;
-            //        }
-            //    }
-            //    //LabelResult.Text = "year : ";
-            //    ////for (int i = 0; i < mysplit.Length; i++)
-            //    ////{
-            //    ////    if (mysplit[i] == "year")
-            //    ////    {
-            //    ////        while (mysplit[++i] == "Source")
-            //    ////        {
-            //    ////            if (mysplit[i - 1] != "year") LabelResult.Text += "; ";
-            //    ////            LabelResult.Text += mysplit[i + 3] + " from " + mysplit[i + 1];
-            //    ////            i = i + 3;
-            //    ////        }
-            //    //for (int i = 0; i < mysplit.Length; i++)
-            //    //{
-            //    //    if (mysplit[i] == "year")
-            //    //    {
-            //    //        LabelResult.Text = mysplit[++i];
-            //    //        i = i + 3;
-            //    //        break;
-            //    //    }
-            //    //}
-
-            //}
+            
+            
             File.WriteAllText(Server.MapPath("~/MyFiles/Latestresult.xml"), result);
 
             XmlDocument doc = new XmlDocument();
@@ -114,11 +48,13 @@ namespace MovieServiceFinalProject
                     string id = node.SelectSingleNode("@poster").InnerText;
                     ImagePoster.ImageUrl = id;
                 }
-                LabelResult.Text = "Rating" + nodelist[0].SelectSingleNode("@imdbRating").InnerText;
+                LabelResult.Text = " Rating " + nodelist[0].SelectSingleNode("@imdbRating").InnerText;
                 LabelResult.Text += " from " + nodelist[0].SelectSingleNode("@imdbVotes").InnerText + "votes";
-                LabelResult.Text += " Actors" + nodelist[0].SelectSingleNode("@actors").InnerText;
-                // LabelYear.Text = "ID" + nodelist[0].SelectSingleNode("@imdbID").InnerText;
-                //LabelResult.Text += " from " + nodelist[0].SelectSingleNode("@imdbVotes").InnerText + "votes";
+                LabelYear.Text += " " + nodelist[0].SelectSingleNode("@year").InnerText;
+                LabelActors.Text += " " + nodelist[0].SelectSingleNode("@actors").InnerText;
+                LabelDirector.Text += " " + nodelist[0].SelectSingleNode("@director").InnerText;
+                LabelWriter.Text += " " + nodelist[0].SelectSingleNode("@writer").InnerText;
+               
             }
 
             else
