@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:c="http://my.company.com">
+  <body>
+    <table border="1">
+      <tr bgcolor="#9abc30">
+        <th>Company Name</th>
+        <th>Webpage</th>
+        <th>Address</th>
+        <th>Director</th>
+        <th>Telephone</th>
+      </tr>
+      <tr bgcolor="#9abc66">
+        <td>Yensid Tlaw</td>
+        <td>www.myfantasy.com</td>
+        <td>
+      Yeti Street 48
+      Downtown
+      Farawayland
+    </td>
+        <td>June</td>
+        <td>(111) 22222222</td>
+      </tr>
+      <tr bgcolor="#9abc66">
+        <td>Tinycomp</td>
+        <td>www.myhugo.com</td>
+        <td>Norgaardsvej 30, 2800 lyngby</td>
+        <td></td>
+        <td>
+      33333333
+      44444444
+    </td>
+      </tr>
+      <tr bgcolor="#9abc66">
+        <td>Cartoons</td>
+        <td>www.lotsofcartoons.com</td>
+        <td>
+      Champs Elysees
+      Holte, Denmark
+    </td>
+        <td></td>
+        <td>55+ 66666666</td>
+      </tr>
+      <tr bgcolor="#9abc66">
+        <td>Web Developers</td>
+        <td>www.superstudents.com</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+</html>

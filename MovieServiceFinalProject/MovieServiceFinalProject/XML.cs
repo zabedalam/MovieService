@@ -18,23 +18,22 @@ namespace MovieServiceFinalProject
 {
     public class XML
     {
-        private string sourcefile { get; set; }
-        private string xsltfile { get; set; }
+        private string Sourcefile { get; set; }
+        private string Xsltfile { get; set; }
         private string Destinationfile { get; set; }
 
         public XML(string xml, string xslt, string destination)
         {
-            this.sourcefile = xml;
-            this.xsltfile = xslt;
+            this.Sourcefile = xml;
+            this.Xsltfile = xslt;
             this.Destinationfile = destination;
         }
-     public void TransformXslt() {
+     public void Transform() {
                 FileStream fist = new FileStream(Destinationfile, FileMode.Create);
                 XslCompiledTransform xct = new XslCompiledTransform();
-                xct.Load(xsltfile);
-                xct.Transform(sourcefile, null, fist);
+                xct.Load(Xsltfile);
+                xct.Transform(Sourcefile, null, fist);
                 fist.Close();
             }
         }
     }
-}

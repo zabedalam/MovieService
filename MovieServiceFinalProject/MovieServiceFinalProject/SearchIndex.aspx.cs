@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.IO;
 using System.Net;
 using System.Xml;
+using System.Xml.Xsl;
 
 
 
@@ -17,124 +18,128 @@ namespace MovieServiceFinalProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            //just for test
+            TransformXslt();
         }
-      
 
-    //protected void ButtonSearch_Click(object sender, EventArgs e)
-    //    {
-    //        WebClient client = new WebClient();
-    //        string result = "";
 
-    //        // substitute " " with "+"
-    //        string myselection = TextBoxSearch.Text.Replace(' ', '+');
-    //        //result = client.DownloadString("http://www.omdbapi.com/?t=" + myselection + "&apikey=" + Token.token);
-    //        result = client.DownloadString("http://www.omdbapi.com/?t=" + myselection + "&r=xml&apikey=" + Token.token);
-    //       // File.WriteAllText(Server.MapPath("~/MyFiles/Latestresult.json"), result);
+        protected void ButtonSearch_Click(object sender, EventArgs e)
+        {
+            WebClient client = new WebClient();
+            string result = "";
 
-    //        //// A simple example. Treat json as a string
-    //        //string[] separatingChars = { "\":\"", "\",\"", "\":[{\"", "\"},{\"", "\"}]\"", "{\"", "\"}" };
-    //        //string[] mysplit = result.Split(separatingChars, System.StringSplitOptions.RemoveEmptyEntries);
+            // substitute " " with "+"
+            string myselection = TextBoxSearch.Text.Replace(' ', '+');
+            //result = client.DownloadString("http://www.omdbapi.com/?t=" + myselection + "&apikey=" + Token.token);
+            result = client.DownloadString("http://www.omdbapi.com/?t=" + myselection + "&r=xml&apikey=" + Token.token);
+            // File.WriteAllText(Server.MapPath("~/MyFiles/Latestresult.json"), result);
 
-    //        //if (mysplit[1] != "False")
-    //        //{
-    //        //    LabelMessage.Text = "Movie found";
+            //// A simple example. Treat json as a string
+            //string[] separatingChars = { "\":\"", "\",\"", "\":[{\"", "\"},{\"", "\"}]\"", "{\"", "\"}" };
+            //string[] mysplit = result.Split(separatingChars, System.StringSplitOptions.RemoveEmptyEntries);
 
-    //        //    for (int i = 0; i < mysplit.Length; i++)
-    //        //    {
-    //        //        if (mysplit[i] == "Poster")
-    //        //        {
-    //        //            ImagePoster.ImageUrl = mysplit[++i];
-    //        //            break;
-    //        //        }
-    //        //    }
-    //        //    LabelResult.Text = "Ratings : ";
-    //        //    for (int i = 0; i < mysplit.Length; i++)
-    //        //    {
-    //        //        if (mysplit[i] == "Ratings")
-    //        //        {
-    //        //            while (mysplit[++i] == "Source")
-    //        //            {
-    //        //                if (mysplit[i - 1] != "Ratings") LabelResult.Text += "; ";
-    //        //                LabelResult.Text += mysplit[i + 3] + " from " + mysplit[i + 1];
-    //        //                i = i + 3;
-    //        //            }
-    //        //            break;
-    //        //        }
-    //        //    }
-    //        //    LabelYear.Text = "Year : ";
-    //        //    for (int i = 0; i < mysplit.Length; i++)
-    //        //    {
-    //        //        if (mysplit[i] == "Year")
-    //        //        {
-    //        //            while (mysplit[++i] == "Source")
-    //        //            {
-    //        //                if (mysplit[i - 1] != "Year") LabelYear.Text += "; ";
-    //        //                LabelResult.Text += mysplit[i + 5] + " from " + mysplit[i + 1];
-    //        //                i = i + 5;
-    //        //            }
-    //        //            break;
-    //        //        }
-    //        //    }
-    //        //    //LabelResult.Text = "year : ";
-    //        //    ////for (int i = 0; i < mysplit.Length; i++)
-    //        //    ////{
-    //        //    ////    if (mysplit[i] == "year")
-    //        //    ////    {
-    //        //    ////        while (mysplit[++i] == "Source")
-    //        //    ////        {
-    //        //    ////            if (mysplit[i - 1] != "year") LabelResult.Text += "; ";
-    //        //    ////            LabelResult.Text += mysplit[i + 3] + " from " + mysplit[i + 1];
-    //        //    ////            i = i + 3;
-    //        //    ////        }
-    //        //    //for (int i = 0; i < mysplit.Length; i++)
-    //        //    //{
-    //        //    //    if (mysplit[i] == "year")
-    //        //    //    {
-    //        //    //        LabelResult.Text = mysplit[++i];
-    //        //    //        i = i + 3;
-    //        //    //        break;
-    //        //    //    }
-    //        //    //}
+            //if (mysplit[1] != "False")
+            //{
+            //    LabelMessage.Text = "Movie found";
 
-    //        //}
-    //        File.WriteAllText(Server.MapPath("~/MyFiles/Latestresult.xml"), result);
+            //    for (int i = 0; i < mysplit.Length; i++)
+            //    {
+            //        if (mysplit[i] == "Poster")
+            //        {
+            //            ImagePoster.ImageUrl = mysplit[++i];
+            //            break;
+            //        }
+            //    }
+            //    LabelResult.Text = "Ratings : ";
+            //    for (int i = 0; i < mysplit.Length; i++)
+            //    {
+            //        if (mysplit[i] == "Ratings")
+            //        {
+            //            while (mysplit[++i] == "Source")
+            //            {
+            //                if (mysplit[i - 1] != "Ratings") LabelResult.Text += "; ";
+            //                LabelResult.Text += mysplit[i + 3] + " from " + mysplit[i + 1];
+            //                i = i + 3;
+            //            }
+            //            break;
+            //        }
+            //    }
+            //    LabelYear.Text = "Year : ";
+            //    for (int i = 0; i < mysplit.Length; i++)
+            //    {
+            //        if (mysplit[i] == "Year")
+            //        {
+            //            while (mysplit[++i] == "Source")
+            //            {
+            //                if (mysplit[i - 1] != "Year") LabelYear.Text += "; ";
+            //                LabelResult.Text += mysplit[i + 5] + " from " + mysplit[i + 1];
+            //                i = i + 5;
+            //            }
+            //            break;
+            //        }
+            //    }
+            //    //LabelResult.Text = "year : ";
+            //    ////for (int i = 0; i < mysplit.Length; i++)
+            //    ////{
+            //    ////    if (mysplit[i] == "year")
+            //    ////    {
+            //    ////        while (mysplit[++i] == "Source")
+            //    ////        {
+            //    ////            if (mysplit[i - 1] != "year") LabelResult.Text += "; ";
+            //    ////            LabelResult.Text += mysplit[i + 3] + " from " + mysplit[i + 1];
+            //    ////            i = i + 3;
+            //    ////        }
+            //    //for (int i = 0; i < mysplit.Length; i++)
+            //    //{
+            //    //    if (mysplit[i] == "year")
+            //    //    {
+            //    //        LabelResult.Text = mysplit[++i];
+            //    //        i = i + 3;
+            //    //        break;
+            //    //    }
+            //    //}
 
-    //        XmlDocument doc = new XmlDocument();
+            //}
+            File.WriteAllText(Server.MapPath("~/MyFiles/Latestresult.xml"), result);
 
-    //        doc.LoadXml(result);
+            XmlDocument doc = new XmlDocument();
 
-    //        if (doc.SelectSingleNode("/root/@response").InnerText == "True")
-    //        {
-    //            XmlNodeList nodelist = doc.SelectNodes("/root/movie");
-    //            foreach (XmlNode node in nodelist)
-    //            {
-    //                string id = node.SelectSingleNode("@poster").InnerText;
-    //                ImagePoster.ImageUrl = id;
-    //            }
-    //            LabelResult.Text = "Rating" + nodelist[0].SelectSingleNode("@imdbRating").InnerText;
-    //            LabelResult.Text += " from " + nodelist[0].SelectSingleNode("@imdbVotes").InnerText + "votes";
-    //           // LabelYear.Text = "ID" + nodelist[0].SelectSingleNode("@imdbID").InnerText;
-    //            //LabelResult.Text += " from " + nodelist[0].SelectSingleNode("@imdbVotes").InnerText + "votes";
-    //        }
+            doc.LoadXml(result);
 
-    //        else
-    //        {
-    //            LabelMessage.Text = "Movie not found";
-    //            ImagePoster.ImageUrl = "~/MyFiles/titanic.jpg";
-    //            LabelResult.Text = "Result";
-    //        }
-    //    }
+            if (doc.SelectSingleNode("/root/@response").InnerText == "True")
+            {
+                XmlNodeList nodelist = doc.SelectNodes("/root/movie");
+                foreach (XmlNode node in nodelist)
+                {
+                    string id = node.SelectSingleNode("@poster").InnerText;
+                    ImagePoster.ImageUrl = id;
+                }
+                LabelResult.Text = "Rating" + nodelist[0].SelectSingleNode("@imdbRating").InnerText;
+                LabelResult.Text += " from " + nodelist[0].SelectSingleNode("@imdbVotes").InnerText + "votes";
+                LabelResult.Text += " Actors" + nodelist[0].SelectSingleNode("@actors").InnerText;
+                // LabelYear.Text = "ID" + nodelist[0].SelectSingleNode("@imdbID").InnerText;
+                //LabelResult.Text += " from " + nodelist[0].SelectSingleNode("@imdbVotes").InnerText + "votes";
+            }
 
-            //Transform XSLT
-    public  void TransformXslt()
+            else
+            {
+                LabelMessage.Text = "Movie not found";
+                ImagePoster.ImageUrl = "~/MyFiles/titanic.jpg";
+                LabelResult.Text = "Result";
+            }
+        }
+
+        //Transform XSLT
+        public  void TransformXslt()
         {
             
-            string sourcefile = Server.MapPath("Commercial.xml");
-            string xsltfile = Server.MapPath("Commercial.xslt");
-            string destinationfile = Server.MapPath("CommercialTransformed.xml");
-            XML xslt1 = new XML(sourcefile,xsltfile,destinationfile);
-            xslt1.TransformXslt();
+            string sourcefile1 = Server.MapPath("XMLCommercial.xml");
+            string xsltfile1 = Server.MapPath("XSLTCommercial.xslt");
+            string destinationfile1 = Server.MapPath("CommercialTransformed.xml");
+            XML xslt1 = new XML(sourcefile1, xsltfile1, destinationfile1);
+            xslt1.Transform();
+
+
 
         }
     }
