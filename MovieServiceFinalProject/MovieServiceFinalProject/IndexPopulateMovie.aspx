@@ -9,15 +9,17 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="ButtonActionMovie" runat="server" Text="Action Movie" />
-            <asp:Button ID="ButtonAnimationMovie" runat="server" Text="Animation Movie" />
-            <asp:Button ID="ButtonThrillerMovie" runat="server" Text="Thriller Movie" />
-            <asp:Button ID="ButtonScienceFictionMovie" runat="server" Text="Science Fiction Movie" />
+            <asp:Button ID="ButtonActionMovie" runat="server" Text="Action Movie" OnClick="ButtonActionMovie_Click" />
+            <asp:Button ID="ButtonAnimationMovie" runat="server" Text="Animation Movie" OnClick="ButtonAnimationMovie_Click" />
+            <asp:Button ID="ButtonThrillerMovie" runat="server" Text="Thriller Movie" OnClick="ButtonThrillerMovie_Click" />
+            <asp:Button ID="ButtonScienceFictionMovie" runat="server" Text="Science Fiction Movie" OnClick="ButtonScienceFictionMovie_Click" />
             <br />
             <br />
-            <asp:ListBox ID="ListBoxPopulateMovie" runat="server"></asp:ListBox>
+            <asp:ListBox ID="ListBoxPopulateMovie" runat="server" OnSelectedIndexChanged="ListBoxPopulateMovie_SelectedIndexChanged"></asp:ListBox>
             <br />
-            <asp:Button ID="ButtonFindMovie" runat="server" Text="Find Movie" />
+            <asp:TextBox ID="TextBoxInput" runat="server"></asp:TextBox>
+            <br />
+            <asp:Button ID="ButtonFindMovie" runat="server" Text="Find Movie" OnClick="ButtonFindMovie_Click" />
             <br />
             <br />
             <asp:Label ID="LabelMovieInfo" runat="server" Text="Movie Info"></asp:Label>
@@ -32,7 +34,7 @@
             <br />
             <asp:Label ID="LabelWriter" runat="server" Text="Writer"></asp:Label>
             <br />
-            <asp:Image ID="Image1" runat="server" />
+            <asp:Image ID="ImagePoster" runat="server" DescriptionUrl="~/MyFiles/titanic.jpg" />
             <br />
             <asp:Label ID="LabelMessages" runat="server" Text="No Messages"></asp:Label>
         </div>

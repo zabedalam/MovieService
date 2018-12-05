@@ -67,6 +67,15 @@ namespace MovieServiceFinalProject {
         protected global::System.Web.UI.WebControls.ListBox ListBoxPopulateMovie;
         
         /// <summary>
+        /// TextBoxInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxInput;
+        
+        /// <summary>
         /// ButtonFindMovie control.
         /// </summary>
         /// <remarks>
@@ -130,13 +139,13 @@ namespace MovieServiceFinalProject {
         protected global::System.Web.UI.WebControls.Label LabelWriter;
         
         /// <summary>
-        /// Image1 control.
+        /// ImagePoster control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image ImagePoster;
         
         /// <summary>
         /// LabelMessages control.

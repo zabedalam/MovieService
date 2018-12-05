@@ -6,6 +6,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 
+using System.Drawing;
+using System.Net;
+using System.IO;
+using System.Xml;
+
+
 using System.Data;
 using System.Data.SqlClient;
 
@@ -13,45 +19,130 @@ namespace MovieServiceFinalProject
 {
     public partial class IndexPopulateMovie : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            UpdateList();
+            
+            if (!Page.IsPostBack)
+            {
+
+                PopulateListBox.Populate(ListBoxPopulateMovie);
+                ListBoxPopulateMovie.AutoPostBack = true;
+                
+            }
+
+            
         }
-        public void UpdateList()
+        
+
+        protected void ButtonActionMovie_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
-            SqlDataAdapter da = null;
-            DataSet ds = null;
-            DataTable dt = null;
-            string sqlsel = "select MovieName from Movie";
-
+            ActionMovie action = new ActionMovie();
             try
             {
-                //conn.Open(); SqlDataAdapter opens connection by itself
-                //da = new SqlDataAdapter();
-                //da.SelectCommand = new SqlCommand(sqlsel, conn);
+                action.Action(ListBoxPopulateMovie);
+            }
+            catch (Exception ex)
+            {
+                LabelMessages.Text = ex.Message;
+            }
+            finally
+            {
+                conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
+            }
+        }
 
-                //ds = new DataSet();
-                //da.Fill(ds, "MyMovie");
+        protected void ListBoxPopulateMovie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TextBoxInput.Text = ListBoxPopulateMovie.SelectedValue;
+        }
 
-                //dt = ds.Tables["MyMovie"];
+        protected void ButtonFindMovie_Click(object sender, EventArgs e)
+        {
+            WebClient client = new WebClient();
+            string result = "";
 
-                //ListBoxPopulateMovie.DataSource = dt;
-                //ListBoxPopulateMovie.DataBind();
-                conn.Open();
-                using (SqlCommand command = new SqlCommand())
+            // substitute " " with "+"
+            string myselection = TextBoxInput.Text.Replace(' ', '+');
+
+            result = client.DownloadString("http://www.omdbapi.com/?t=" + myselection + "&r=xml&apikey=" + Token.token);
+
+
+            File.WriteAllText(Server.MapPath("~/MyFiles/Latestresult.xml"), result);
+
+            XmlDocument doc = new XmlDocument();
+
+            doc.LoadXml(result);
+
+            if (doc.SelectSingleNode("/root/@response").InnerText == "True")
+            {
+                XmlNodeList nodelist = doc.SelectNodes("/root/movie");
+                foreach (XmlNode node in nodelist)
                 {
-                    command.Connection = conn;
-                    command.CommandText = "SELECT MovieName FROM Movie ";
-                    //whenever you want to get some data from the database
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            ListBoxPopulateMovie.Items.Add(reader["MovieName"].ToString());
-                        }
-                    }
+                    string id = node.SelectSingleNode("@poster").InnerText;
+                    ImagePoster.ImageUrl = id;
                 }
+                LabelRatings.Text = " Rating " + nodelist[0].SelectSingleNode("@imdbRating").InnerText;
+                LabelRatings.Text += " from " + nodelist[0].SelectSingleNode("@imdbVotes").InnerText + "votes";
+                LabelYear.Text += " " + nodelist[0].SelectSingleNode("@year").InnerText;
+                LabelActors.Text += " " + nodelist[0].SelectSingleNode("@actors").InnerText;
+                LabelDirector.Text += " " + nodelist[0].SelectSingleNode("@director").InnerText;
+                LabelWriter.Text += " " + nodelist[0].SelectSingleNode("@writer").InnerText;
+
+            }
+
+            else
+            {
+                LabelMessages.Text = "Movie not found";
+                ImagePoster.ImageUrl = "~/MyFiles/titanic.jpg";
+                //LabelResult.Text = "Result";
+            }
+        }
+
+        protected void ButtonAnimationMovie_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
+            AnimationMovie animation = new AnimationMovie();
+            try
+            {
+                animation.Animation(ListBoxPopulateMovie);
+            }
+            catch (Exception ex)
+            {
+                LabelMessages.Text = ex.Message;
+            }
+            finally
+            {
+                conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
+            }
+        }
+
+        protected void ButtonThrillerMovie_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
+            ThrillerMovie thriller = new ThrillerMovie();
+            try
+            {
+                thriller.Thriller(ListBoxPopulateMovie);
+            }
+            catch (Exception ex)
+            {
+                LabelMessages.Text = ex.Message;
+            }
+            finally
+            {
+                conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
+            }
+        }
+
+        protected void ButtonScienceFictionMovie_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
+            ScienceFictionMovie ScienceFiction = new ScienceFictionMovie();
+            try
+            {
+                ScienceFiction.ScienceFiction(ListBoxPopulateMovie);
             }
             catch (Exception ex)
             {
@@ -64,3 +155,5 @@ namespace MovieServiceFinalProject
         }
     }
 }
+    
+
