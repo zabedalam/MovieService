@@ -37,23 +37,27 @@ namespace MovieServiceFinalProject
 
         protected void ButtonActionMovie_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
+            ListBoxPopulateMovie.Items.Clear();
             ActionMovie action = new ActionMovie();
-            try
-            {
-                action.Action(ListBoxPopulateMovie);
-            }
-            catch (Exception ex)
-            {
-                LabelMessages.Text = ex.Message;
-            }
-            finally
-            {
-                conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
-            }
+            action.Action(ListBoxPopulateMovie);
+            
+            //SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
+            //ActionMovie action = new ActionMovie();
+            //try
+            //{
+            //    action.Action(ListBoxPopulateMovie);
+            //}
+            //catch (Exception ex)
+            //{
+            //    LabelMessages.Text = ex.Message;
+            //}
+            //finally
+            //{
+            //    conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
+            //}
         }
 
-        protected void ListBoxPopulateMovie_SelectedIndexChanged(object sender, EventArgs e)
+        public void ListBoxPopulateMovie_SelectedIndexChanged(object sender, EventArgs e)
         {
             TextBoxInput.Text = ListBoxPopulateMovie.SelectedValue;
         }
@@ -103,56 +107,68 @@ namespace MovieServiceFinalProject
 
         protected void ButtonAnimationMovie_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
+            ListBoxPopulateMovie.Items.Clear();
             AnimationMovie animation = new AnimationMovie();
-            try
-            {
-                animation.Animation(ListBoxPopulateMovie);
-            }
-            catch (Exception ex)
-            {
-                LabelMessages.Text = ex.Message;
-            }
-            finally
-            {
-                conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
-            }
+            animation.Animation(ListBoxPopulateMovie);
+            
+            //SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
+            //AnimationMovie animation = new AnimationMovie();
+            //try
+            //{
+            //    animation.Animation(ListBoxPopulateMovie);
+            //}
+            //catch (Exception ex)
+            //{
+            //    LabelMessages.Text = ex.Message;
+            //}
+            //finally
+            //{
+            //    conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
+            //}
         }
 
         protected void ButtonThrillerMovie_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
+            ListBoxPopulateMovie.Items.Clear();
             ThrillerMovie thriller = new ThrillerMovie();
-            try
-            {
-                thriller.Thriller(ListBoxPopulateMovie);
-            }
-            catch (Exception ex)
-            {
-                LabelMessages.Text = ex.Message;
-            }
-            finally
-            {
-                conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
-            }
+            thriller.Thriller(ListBoxPopulateMovie);
+           // ListBoxPopulateMovie.Items.Clear();
+            //SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
+            //ThrillerMovie thriller = new ThrillerMovie();
+            //try
+            //{
+            //    thriller.Thriller(ListBoxPopulateMovie);
+            //}
+            //catch (Exception ex)
+            //{
+            //    LabelMessages.Text = ex.Message;
+            //}
+            //finally
+            //{
+            //    conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
+            //}
         }
 
         protected void ButtonScienceFictionMovie_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
-            ScienceFictionMovie ScienceFiction = new ScienceFictionMovie();
-            try
-            {
-                ScienceFiction.ScienceFiction(ListBoxPopulateMovie);
-            }
-            catch (Exception ex)
-            {
-                LabelMessages.Text = ex.Message;
-            }
-            finally
-            {
-                conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
-            }
+            ListBoxPopulateMovie.Items.Clear();
+            ScienceFictionMovie science = new ScienceFictionMovie();
+            science.ScienceFiction(ListBoxPopulateMovie);
+            //ListBoxPopulateMovie.Items.Clear();
+            //SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
+            //ScienceFictionMovie ScienceFiction = new ScienceFictionMovie();
+            //try
+            //{
+            //    ScienceFiction.ScienceFiction(ListBoxPopulateMovie);
+            //}
+            //catch (Exception ex)
+            //{
+            //    LabelMessages.Text = ex.Message;
+            //}
+            //finally
+            //{
+            //    conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
+            //}
         }
     }
 }

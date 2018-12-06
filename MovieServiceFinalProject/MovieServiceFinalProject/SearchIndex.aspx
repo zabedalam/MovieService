@@ -11,7 +11,7 @@
         <div>
             <asp:TextBox ID="TextBoxSearch" runat="server" Width="231px"></asp:TextBox>
             <asp:Button ID="ButtonSearch" runat="server" OnClick="ButtonSearch_Click" Text="Search" />
-            <asp:Button ID="ButtonMovieAction" runat="server" Text="Action Movie" />
+            <asp:Button ID="ButtonMovieAction" runat="server" Text="Action Movie" OnClick="ButtonMovieAction_Click" />
             <asp:Button ID="ButtonAnimation" runat="server" Text="Animation Movie" />
             <asp:Button ID="ButtonThrillerMovie" runat="server" Text="Thriller Movie" />
             <asp:Button ID="ButtonScienceFictionMovie" runat="server" Text="Science Fiction Movie" />

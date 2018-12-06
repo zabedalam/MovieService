@@ -23,37 +23,65 @@ namespace MovieServiceFinalProject
 {
     public class AnimationMovie
     {
-        //private object LabelMessages { get; set; }
-        //private object ListBoxPopulateMovie { get; set; }
-        //private object Items { get; set; }
-
+        private string Title { get; set; }
         public void Animation(ListBox lb)
         {
-
-            SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
-           
+            SqlConnection conn = new SqlConnection(@"data source = .\Sqlexpress; integrated security = true; database = MovieFlex");
+            SqlCommand cmd = null;
+            SqlDataReader rdr = null;
+            string sqlsel = "";
+            try
+            {
                 conn.Open();
-                using (SqlCommand command = new SqlCommand())
+
+                sqlsel = "select MovieName from Movie,Info where info.FilmCategoryID=2 and Movie.FilmCategoryID=2 ";
+                cmd = new SqlCommand(sqlsel, conn);
+
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
                 {
-                    command.Connection = conn;
-                    command.CommandText = "select MovieName from Movie,Info where info.FilmCategoryID=2 and Movie.FilmCategoryID=2 ";
-                    //whenever you want to get some data from the database
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            lb.Items.Add(reader["MovieName"].ToString());
-                        }
-                    }
+                    //ListBoxrdr.Items.Add("Product = " + rdr[0] + ", Id of category =" + rdr["categoryid"]);
+                    lb.Items.Add(rdr["MovieName"].ToString());
                 }
+                rdr.Close();
             }
-            //catch (Exception ex)
-            //{
-            //    LabelMessages.Text = ex.Message;
+            catch (Exception)
+            {
+                Title = "not found";
+                //LabelMessages.Text = ex.Message;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            //SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
+
+            //    conn.Open();
+            //    using (SqlCommand command = new SqlCommand())
+            //    {
+            //        command.Connection = conn;
+            //        command.CommandText = "select MovieName from Movie,Info where info.FilmCategoryID=2 and Movie.FilmCategoryID=2 ";
+            //        //whenever you want to get some data from the database
+            //        using (SqlDataReader reader = command.ExecuteReader())
+            //        {
+            //            while (reader.Read())
+            //            {
+            //                lb.Items.Add(reader["MovieName"].ToString());
+            //            }
+            //        }
+            //    }
+            //conn.Close();
             //}
-            //finally
-            //{
-            //    conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
-            //}
+            ////catch (Exception ex)
+            ////{
+            ////    LabelMessages.Text = ex.Message;
+            ////}
+            ////finally
+            ////{
+            ////    conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
+            ////}
         }
     }
+}
