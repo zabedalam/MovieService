@@ -20,6 +20,7 @@
             <asp:TextBox ID="TextBoxInput" runat="server"></asp:TextBox>
             <br />
             <asp:Button ID="ButtonFindMovie" runat="server" Text="Find Movie" OnClick="ButtonFindMovie_Click" />
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
             <br />
             <br />
             <asp:Label ID="LabelMovieInfo" runat="server" Text="Movie Info"></asp:Label>
@@ -37,6 +38,39 @@
             <asp:Image ID="ImagePoster" runat="server" DescriptionUrl="~/MyFiles/titanic.jpg" />
             <br />
             <asp:Label ID="LabelMessages" runat="server" Text="No Messages"></asp:Label>
+            <br />
+            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                 <HeaderTemplate>
+                <table class="mytable">
+                    <tr>
+                        <%--<td class="myheader">catId</td>--%>
+                        <td class="myheader">MovieName</td>
+                        <td class="myheader">ReleaseYear</td>
+                        <%--<td class="myheader">Birthday</td>--%>
+                        <td class="myheader">Picture</td>
+                    </tr>
+                
+            </HeaderTemplate>
+                 <ItemTemplate>
+                    <tr>
+                        <%--<td class="myItem"><%#Eval("catId") %></td>--%>
+                        <td class="myItem"><%#Eval("MovieName") %></td>
+                        <td class="myItem"><%#Eval("ReleaseYear") %></td>
+                        <%--<td class="myItem"><%#Eval("Birthday","{0:dd-MM-yyyy}") %></td>--%>
+                        <%--<td class="myItem"><img src="catpic/<%#Eval("Picture") %>" alt="Movie"/></td>--%>
+                        <td class="myItem"><img src="<%#Eval("Picture") %>" alt="Movie"/></td>
+
+
+                    </tr>
+
+                </ItemTemplate>
+                 <FooterTemplate>
+                    </table>
+                </FooterTemplate>
+
+            </asp:Repeater>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MovieFlexConnectionString %>" SelectCommand="SELECT top 5 [Picture], [ReleaseYear], [MovieName] FROM [Movie] order by Visit_Counter desc"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="action" runat="server"></asp:SqlDataSource>
         </div>
     </form>
 </body>

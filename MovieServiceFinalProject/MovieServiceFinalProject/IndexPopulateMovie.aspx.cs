@@ -22,7 +22,8 @@ namespace MovieServiceFinalProject
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+           
+
             if (!Page.IsPostBack)
             {
 
@@ -57,7 +58,7 @@ namespace MovieServiceFinalProject
             //}
         }
 
-        public void ListBoxPopulateMovie_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ListBoxPopulateMovie_SelectedIndexChanged(object sender, EventArgs e)
         {
             TextBoxInput.Text = ListBoxPopulateMovie.SelectedValue;
         }
@@ -88,14 +89,58 @@ namespace MovieServiceFinalProject
                     string id = node.SelectSingleNode("@poster").InnerText;
                     ImagePoster.ImageUrl = id;
                 }
+                var Title = nodelist[0].SelectSingleNode("@title").InnerText;
+                var ImageLink= nodelist[0].SelectSingleNode("@poster").InnerText;
                 LabelRatings.Text = " Rating " + nodelist[0].SelectSingleNode("@imdbRating").InnerText;
                 LabelRatings.Text += " from " + nodelist[0].SelectSingleNode("@imdbVotes").InnerText + "votes";
                 LabelYear.Text += " " + nodelist[0].SelectSingleNode("@year").InnerText;
                 LabelActors.Text += " " + nodelist[0].SelectSingleNode("@actors").InnerText;
                 LabelDirector.Text += " " + nodelist[0].SelectSingleNode("@director").InnerText;
                 LabelWriter.Text += " " + nodelist[0].SelectSingleNode("@writer").InnerText;
+                //.....................
+                SqlConnection conn = new SqlConnection(@"data source = .\Sqlexpress; integrated security = true; database = MovieFlex");
+                SqlCommand cmd = null;
+                SqlCommand cmd1 = null;
+                SqlDataReader rdr = null;
+                string sqlsel = "";
+                string sqlsel1 = "";
+                try
+                {
+                    conn.Open();
 
+                    sqlsel = "update Movie set Visit_Counter=Visit_Counter+1 where MovieName=@MovieName ";
+                    sqlsel1 = "update Movie set Picture=@Picture where MovieName=@MovieName";
+                    cmd = new SqlCommand(sqlsel, conn);
+                    cmd.Parameters.AddWithValue("@MovieName", Title);
+                    cmd1 = new SqlCommand(sqlsel1, conn);
+                    cmd1.Parameters.AddWithValue("@Picture", ImageLink);
+                    cmd1.Parameters.AddWithValue("@MovieName", Title);
+
+
+                    // rdr = cmd.ExecuteReader();
+                    cmd.ExecuteNonQuery();
+                    cmd1.ExecuteNonQuery();
+
+
+                    //while (rdr.Read())
+                    //{
+                    //    //ListBoxrdr.Items.Add("Product = " + rdr[0] + ", Id of category =" + rdr["categoryid"]);
+                    //    lb.Items.Add(rdr["MovieName"].ToString());
+                    //}
+                    rdr.Close();
+                }
+                catch (Exception)
+                {
+                    Title = "not found";
+                    //LabelMessages.Text = ex.Message;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                //................
             }
+            
 
             else
             {
@@ -103,6 +148,8 @@ namespace MovieServiceFinalProject
                 ImagePoster.ImageUrl = "~/MyFiles/titanic.jpg";
                // LabelResult.Text = "Result";
             }
+
+
         }
 
         protected void ButtonAnimationMovie_Click(object sender, EventArgs e)
@@ -169,6 +216,42 @@ namespace MovieServiceFinalProject
             //{
             //    conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
             //}
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+        //   if(TextBoxInput.Text == ListBoxPopulateMovie.SelectedValue) {
+        //        SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
+        //        SqlCommand cmd = null;
+        //        SqlDataReader rdr = null;
+        //        string sqlsel = "";
+        //        //try
+        //        //{
+        //            conn.Open();
+
+        //            sqlsel = "update Movie set Visit_Counter=Visit_Counter+1 where MovieName=@MovieName ";
+        //            cmd = new SqlCommand(sqlsel, conn);
+
+        //            rdr = cmd.ExecuteReader();
+
+        //            //while (rdr.Read())
+        //            //{
+        //            //    //ListBoxrdr.Items.Add("Product = " + rdr[0] + ", Id of category =" + rdr["categoryid"]);
+        //            //    lb.Items.Add(rdr["MovieName"].ToString());
+        //            //}
+        //            rdr.Close();
+        //            //}
+        //            //catch (Exception)
+        //            //{
+        //            //    Title = "not found";
+        //            //    //LabelMessages.Text = ex.Message;
+        //            //}
+        //            //finally
+        //            //{
+        //            //    conn.Close();
+                   // }
+                
+                
         }
     }
 }

@@ -32,6 +32,7 @@ namespace MovieServiceFinalProject
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
+            //SqlConnection conn = new SqlConnection(@"data source = .\Sqlexpress; integrated security = true; database = MovieFlex");
             WebClient client = new WebClient();
             string result = "";
 
@@ -62,7 +63,11 @@ namespace MovieServiceFinalProject
                 LabelActors.Text += " " + nodelist[0].SelectSingleNode("@actors").InnerText;
                 LabelDirector.Text += " " + nodelist[0].SelectSingleNode("@director").InnerText;
                 LabelWriter.Text += " " + nodelist[0].SelectSingleNode("@writer").InnerText;
-               
+                //Movie Counter
+                //SqlConnection conn = new SqlConnection(@"data source = .\Sqlexpress; integrated security = true; database = MovieFlex");
+                //MovieCounter movie1 = new MovieCounter();
+               // movie1.UpdateMovie();
+
             }
 
             else
@@ -71,6 +76,7 @@ namespace MovieServiceFinalProject
                 ImagePoster.ImageUrl = "~/MyFiles/titanic.jpg";
                 //LabelResult.Text = "Result";
             }
+           
         }
 
         //Transform XSLT
@@ -92,7 +98,8 @@ namespace MovieServiceFinalProject
         {
            
             Response.Redirect("IndexPopulateMovie.aspx", true);
-            IndexPopulateMovie.ListBoxPopulateMovie.Items.Clear();
+           
+           // IndexPopulateMovie.ListBoxPopulateMovie.Items.Clear();
             ActionMovie action = new ActionMovie();
             ListBox ListBoxPopulateMovie = null;
             action.Action(ListBoxPopulateMovie);

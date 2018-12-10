@@ -19,10 +19,10 @@ namespace MovieServiceFinalProject
             //lb.Items.Add(new ListItem(space + space + space + "High Noon", "tt0044706"));
             //lb.Items.Add(new ListItem(space + space + space + "Goldfinger", "tt0058150"));
 
-            //lb.Items.Add(new ListItem(space + space + space + "The little Mermaid"));
-            //lb.Items.Add(new ListItem(space + space + space + "Van Helsing"));
-            //lb.Items.Add(new ListItem(space + space + space + "High Noon"));
-            //lb.Items.Add(new ListItem(space + space + space + "Goldfinger"));
+            lb.Items.Add(new ListItem(space + space + space + "The little Mermaid"));
+            lb.Items.Add(new ListItem(space + space + space + "Van Helsing"));
+            lb.Items.Add(new ListItem(space + space + space + "High Noon"));
+            lb.Items.Add(new ListItem(space + space + space + "Goldfinger"));
         }
     }
 }
