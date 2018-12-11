@@ -69,7 +69,7 @@
   <ItemGroup>
     <Content Include="IndexPopulateMovie.aspx" />
     <Content Include="MyFiles\titanic.jpg" />
-    <Content Include="SearchIndex.aspx" />
+    <Content Include="ActionMovie.aspx" />
     <Content Include="Web.config" />
     <Content Include="XMLCommercial.xml" />
     <Content Include="XSLTCommercial.xslt" />
@@ -85,14 +85,15 @@
     </Compile>
     <Compile Include="MovieContainer.cs" />
     <Compile Include="MovieCounter.cs" />
+    <Compile Include="MovieDisplayer.cs" />
     <Compile Include="PopulateListBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchIndex.aspx.cs">
-      <DependentUpon>SearchIndex.aspx</DependentUpon>
+    <Compile Include="ActionMovie.aspx.cs">
+      <DependentUpon>ActionMovie.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SearchIndex.aspx.designer.cs">
-      <DependentUpon>SearchIndex.aspx</DependentUpon>
+    <Compile Include="ActionMovie.aspx.designer.cs">
+      <DependentUpon>ActionMovie.aspx</DependentUpon>
     </Compile>
     <Compile Include="Token.cs" />
     <Compile Include="XML.cs" />

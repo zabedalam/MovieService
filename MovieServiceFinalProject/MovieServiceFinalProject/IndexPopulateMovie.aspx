@@ -55,7 +55,7 @@
                         
                         <td class="myItem"><%#Eval("MovieName") %></td>
                         <td class="myItem"><%#Eval("ReleaseYear") %></td>
-                        
+                        <%--<div class="col-sm-6"></div>--%>
                         <td class="myItem"><img src="<%#Eval("Picture") %>" alt="Movie"/></td>
 
 

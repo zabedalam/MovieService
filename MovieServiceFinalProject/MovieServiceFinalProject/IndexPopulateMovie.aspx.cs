@@ -38,10 +38,11 @@ namespace MovieServiceFinalProject
 
         protected void ButtonActionMovie_Click(object sender, EventArgs e)
         {
-            ListBoxPopulateMovie.Items.Clear();
-            MovieContainer action = new MovieContainer();
-            action.ActionMovie(ListBoxPopulateMovie);
-            
+            Response.Redirect("SearchIndex.aspx");
+            //ListBoxPopulateMovie.Items.Clear();
+            //MovieContainer action = new MovieContainer();
+            //action.ActionMovie(ListBoxPopulateMovie);
+
         }
 
         protected void ListBoxPopulateMovie_SelectedIndexChanged(object sender, EventArgs e)
