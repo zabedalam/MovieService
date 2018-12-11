@@ -4,37 +4,27 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.IO;
 using System.Net;
+using System.IO;
 using System.Xml;
-using System.Xml.Xsl;
 using System.Data.SqlClient;
+
 
 namespace MovieServiceFinalProject
 {
-    public partial class SearchIndex : System.Web.UI.Page
-
+    public partial class SearchEngineen : System.Web.UI.Page
     {
-        
         protected void Page_Load(object sender, EventArgs e)
         {
-            show();
-            //just for test
-            TransformXslt();
+            Search();
         }
-        public void show()
-        {
-            MovieContainer action1 = new MovieContainer();
-            action1.ActionMovie(ListBoxMovieDisplay);
-        }
-
-        protected void ButtonSearch_Click(object sender, EventArgs e)
+        public void Search()
         {
             WebClient client = new WebClient();
             string result = "";
 
             // substitute " " with "+"
-            string myselection = TextBoxSearch.Text.Replace(' ', '+');
+            string myselection = TextBoxInput.Text.Replace(' ', '+');
             result = client.DownloadString("http://www.omdbapi.com/?t=" + myselection + "&r=xml&apikey=" + Token.token);
             File.WriteAllText(Server.MapPath("~/MyFiles/Latestresult.xml"), result);
             XmlDocument doc = new XmlDocument();
@@ -42,7 +32,7 @@ namespace MovieServiceFinalProject
 
             if (doc.SelectSingleNode("/root/@response").InnerText == "True")
             {
-                LabelMessage.Text = "Movie found";
+                LabelMessages.Text = "Movie found";
                 XmlNodeList nodelist = doc.SelectNodes("/root/movie");
                 foreach (XmlNode node in nodelist)
                 {
@@ -51,8 +41,8 @@ namespace MovieServiceFinalProject
                 }
                 var Title = nodelist[0].SelectSingleNode("@title").InnerText;
                 var ImageLink = nodelist[0].SelectSingleNode("@poster").InnerText;
-                LabelResult.Text = " Rating " + nodelist[0].SelectSingleNode("@imdbRating").InnerText;
-                LabelResult.Text += " from " + nodelist[0].SelectSingleNode("@imdbVotes").InnerText + "votes";
+                LabelRatings.Text = " Rating " + nodelist[0].SelectSingleNode("@imdbRating").InnerText;
+                LabelRatings.Text += " from " + nodelist[0].SelectSingleNode("@imdbVotes").InnerText + "votes";
                 LabelYear.Text += " " + nodelist[0].SelectSingleNode("@year").InnerText;
                 LabelActors.Text += " " + nodelist[0].SelectSingleNode("@actors").InnerText;
                 LabelDirector.Text += " " + nodelist[0].SelectSingleNode("@director").InnerText;
@@ -63,6 +53,7 @@ namespace MovieServiceFinalProject
                 SqlCommand cmd = null;
                 SqlCommand cmd1 = null;
                 SqlDataReader rdr = null;
+
                 string sqlsel = "";
                 string sqlsel1 = "";
                 try
@@ -71,6 +62,10 @@ namespace MovieServiceFinalProject
 
                     sqlsel = "update Movie set Visit_Counter=Visit_Counter+1 where MovieName=@MovieName ";
                     sqlsel1 = "update Movie set Picture=@Picture where MovieName=@MovieName";
+
+
+                    cmd1 = new SqlCommand(sqlsel1, conn);
+
                     cmd = new SqlCommand(sqlsel, conn);
                     cmd.Parameters.AddWithValue("@MovieName", Title);
                     cmd1 = new SqlCommand(sqlsel1, conn);
@@ -89,46 +84,18 @@ namespace MovieServiceFinalProject
                 {
                     conn.Close();
                 }
-                
+
             }
 
 
             else
             {
-                LabelMessage.Text = "Movie not found";
+                LabelMessages.Text = "Movie not found";
                 ImagePoster.ImageUrl = "~/MyFiles/titanic.jpg";
                 // LabelResult.Text = "Result";
             }
-        }
-
-        //Transform XSLT
-        public void TransformXslt()
-        {
-            string sourcefile1 = Server.MapPath("XMLCommercial.xml");
-            string xsltfile1 = Server.MapPath("XSLTCommercial.xslt");
-            string destinationfile1 = Server.MapPath("CommercialTransformed.xml");
-            XML xslt1 = new XML(sourcefile1, xsltfile1, destinationfile1);
-            xslt1.Transform();
-        }
 
 
-        protected void ButtonMovieAction_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        protected void TextBoxSearch_TextChanged(object sender, EventArgs e)
-        {
-           // TextBoxSearch.Text = ListBoxMovieDisplay.SelectedValue;
-        }
-
-        protected void ListBoxMovieDisplay_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            TextBoxSearch.Text = ListBoxMovieDisplay.SelectedValue;
         }
     }
 }
-
-
-    

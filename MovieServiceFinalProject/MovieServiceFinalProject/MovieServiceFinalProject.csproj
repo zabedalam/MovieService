@@ -70,6 +70,7 @@
     <Content Include="IndexPopulateMovie.aspx" />
     <Content Include="MyFiles\titanic.jpg" />
     <Content Include="ActionMovie.aspx" />
+    <Content Include="SearchEngineen.aspx" />
     <Content Include="Web.config" />
     <Content Include="XMLCommercial.xml" />
     <Content Include="XSLTCommercial.xslt" />
@@ -94,6 +95,13 @@
     </Compile>
     <Compile Include="ActionMovie.aspx.designer.cs">
       <DependentUpon>ActionMovie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchEngineen.aspx.cs">
+      <DependentUpon>SearchEngineen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchEngineen.aspx.designer.cs">
+      <DependentUpon>SearchEngineen.aspx</DependentUpon>
     </Compile>
     <Compile Include="Token.cs" />
     <Compile Include="XML.cs" />
