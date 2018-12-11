@@ -20,7 +20,6 @@
             <asp:TextBox ID="TextBoxInput" runat="server"></asp:TextBox>
             <br />
             <asp:Button ID="ButtonFindMovie" runat="server" Text="Find Movie" OnClick="ButtonFindMovie_Click" />
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
             <br />
             <br />
             <asp:Label ID="LabelMovieInfo" runat="server" Text="Movie Info"></asp:Label>

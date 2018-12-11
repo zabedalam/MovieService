@@ -39,23 +39,9 @@ namespace MovieServiceFinalProject
         protected void ButtonActionMovie_Click(object sender, EventArgs e)
         {
             ListBoxPopulateMovie.Items.Clear();
-            ActionMovie action = new ActionMovie();
-            action.Action(ListBoxPopulateMovie);
+            MovieContainer action = new MovieContainer();
+            action.ActionMovie(ListBoxPopulateMovie);
             
-            //SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
-            //ActionMovie action = new ActionMovie();
-            //try
-            //{
-            //    action.Action(ListBoxPopulateMovie);
-            //}
-            //catch (Exception ex)
-            //{
-            //    LabelMessages.Text = ex.Message;
-            //}
-            //finally
-            //{
-            //    conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
-            //}
         }
 
         protected void ListBoxPopulateMovie_SelectedIndexChanged(object sender, EventArgs e)
@@ -155,101 +141,31 @@ namespace MovieServiceFinalProject
         protected void ButtonAnimationMovie_Click(object sender, EventArgs e)
         {
             ListBoxPopulateMovie.Items.Clear();
-            AnimationMovie animation = new AnimationMovie();
-            animation.Animation(ListBoxPopulateMovie);
+            MovieContainer animation = new MovieContainer();
+            animation.AnimationMovie(ListBoxPopulateMovie);
             
-            //SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
-            //AnimationMovie animation = new AnimationMovie();
-            //try
-            //{
-            //    animation.Animation(ListBoxPopulateMovie);
-            //}
-            //catch (Exception ex)
-            //{
-            //    LabelMessages.Text = ex.Message;
-            //}
-            //finally
-            //{
-            //    conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
-            //}
         }
 
         protected void ButtonThrillerMovie_Click(object sender, EventArgs e)
         {
             ListBoxPopulateMovie.Items.Clear();
-            ThrillerMovie thriller = new ThrillerMovie();
-            thriller.Thriller(ListBoxPopulateMovie);
-           // ListBoxPopulateMovie.Items.Clear();
-            //SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
-            //ThrillerMovie thriller = new ThrillerMovie();
-            //try
-            //{
-            //    thriller.Thriller(ListBoxPopulateMovie);
-            //}
-            //catch (Exception ex)
-            //{
-            //    LabelMessages.Text = ex.Message;
-            //}
-            //finally
-            //{
-            //    conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
-            //}
+            MovieContainer thi = new MovieContainer();
+            thi.ThrillerMovie(ListBoxPopulateMovie);
+            
         }
 
         protected void ButtonScienceFictionMovie_Click(object sender, EventArgs e)
         {
+
             ListBoxPopulateMovie.Items.Clear();
-            ScienceFictionMovie science = new ScienceFictionMovie();
-            science.ScienceFiction(ListBoxPopulateMovie);
-            //ListBoxPopulateMovie.Items.Clear();
-            //SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
-            //ScienceFictionMovie ScienceFiction = new ScienceFictionMovie();
-            //try
-            //{
-            //    ScienceFiction.ScienceFiction(ListBoxPopulateMovie);
-            //}
-            //catch (Exception ex)
-            //{
-            //    LabelMessages.Text = ex.Message;
-            //}
-            //finally
-            //{
-            //    conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
-            //}
+            MovieContainer sci = new MovieContainer();
+            sci.ScienceMovie(ListBoxPopulateMovie);
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-        //   if(TextBoxInput.Text == ListBoxPopulateMovie.SelectedValue) {
-        //        SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
-        //        SqlCommand cmd = null;
-        //        SqlDataReader rdr = null;
-        //        string sqlsel = "";
-        //        //try
-        //        //{
-        //            conn.Open();
-
-        //            sqlsel = "update Movie set Visit_Counter=Visit_Counter+1 where MovieName=@MovieName ";
-        //            cmd = new SqlCommand(sqlsel, conn);
-
-        //            rdr = cmd.ExecuteReader();
-
-        //            //while (rdr.Read())
-        //            //{
-        //            //    //ListBoxrdr.Items.Add("Product = " + rdr[0] + ", Id of category =" + rdr["categoryid"]);
-        //            //    lb.Items.Add(rdr["MovieName"].ToString());
-        //            //}
-        //            rdr.Close();
-        //            //}
-        //            //catch (Exception)
-        //            //{
-        //            //    Title = "not found";
-        //            //    //LabelMessages.Text = ex.Message;
-        //            //}
-        //            //finally
-        //            //{
-        //            //    conn.Close();
-                   // }
+        
                 
                 
         }

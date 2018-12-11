@@ -75,8 +75,7 @@
     <Content Include="XSLTCommercial.xslt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionMovie.cs" />
-    <Compile Include="AnimationMovie.cs" />
+    <Compile Include="DBUtility.cs" />
     <Compile Include="IndexPopulateMovie.aspx.cs">
       <DependentUpon>IndexPopulateMovie.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -84,10 +83,10 @@
     <Compile Include="IndexPopulateMovie.aspx.designer.cs">
       <DependentUpon>IndexPopulateMovie.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MovieContainer.cs" />
     <Compile Include="MovieCounter.cs" />
     <Compile Include="PopulateListBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScienceFictionMovie.cs" />
     <Compile Include="SearchIndex.aspx.cs">
       <DependentUpon>SearchIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -95,7 +94,6 @@
     <Compile Include="SearchIndex.aspx.designer.cs">
       <DependentUpon>SearchIndex.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ThrillerMovie.cs" />
     <Compile Include="Token.cs" />
     <Compile Include="XML.cs" />
   </ItemGroup>

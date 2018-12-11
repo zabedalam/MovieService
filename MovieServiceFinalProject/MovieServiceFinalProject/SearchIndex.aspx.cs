@@ -97,27 +97,7 @@ namespace MovieServiceFinalProject
         protected void ButtonMovieAction_Click(object sender, EventArgs e)
         {
            
-            Response.Redirect("IndexPopulateMovie.aspx", true);
            
-           // IndexPopulateMovie.ListBoxPopulateMovie.Items.Clear();
-            ActionMovie action = new ActionMovie();
-            ListBox ListBoxPopulateMovie = null;
-            action.Action(ListBoxPopulateMovie);
-            //SqlConnection conn = new SqlConnection(@"data source = .\sqlexpress; integrated security = true; database = MovieFlex");
-            //ActionMovie action = new ActionMovie();
-            //try
-            //{
-            //    ListBox ListBoxPopulateMovie = null;
-            //    action.Action(ListBoxPopulateMovie);
-            //}
-            //catch (Exception ex)
-            //{
-            //    //LabelMessages.Text = ex.Message;
-            //}
-            //finally
-            //{
-            //    conn.Close(); // SqlDataAdapter closes connection by itself; but can fail in case of errors
-            //}
         }
     }
 
