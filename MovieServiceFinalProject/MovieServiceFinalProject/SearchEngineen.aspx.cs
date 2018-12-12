@@ -49,30 +49,24 @@ namespace MovieServiceFinalProject
                 LabelWriter.Text += " " + nodelist[0].SelectSingleNode("@writer").InnerText;
 
                 //INCREASE NUMBER OF VISITED MOVIE AND DOWNLOAD POSTER OF MOVIE
-                SqlConnection conn = new SqlConnection(@"data source = .\Sqlexpress; integrated security = true; database = MovieFlex");
-                SqlCommand cmd = null;
-                SqlCommand cmd1 = null;
+                SqlCommand counter = null;
+                SqlCommand poster = null;
                 SqlDataReader rdr = null;
-
-                string sqlsel = "";
-                string sqlsel1 = "";
+                string UpdateCounter = "";
+                string SetPoster = "";
+                DBUtility conn = new DBUtility();
                 try
                 {
-                    conn.Open();
-
-                    sqlsel = "update Movie set Visit_Counter=Visit_Counter+1 where MovieName=@MovieName ";
-                    sqlsel1 = "update Movie set Picture=@Picture where MovieName=@MovieName";
-
-
-                    cmd1 = new SqlCommand(sqlsel1, conn);
-
-                    cmd = new SqlCommand(sqlsel, conn);
-                    cmd.Parameters.AddWithValue("@MovieName", Title);
-                    cmd1 = new SqlCommand(sqlsel1, conn);
-                    cmd1.Parameters.AddWithValue("@Picture", ImageLink);
-                    cmd1.Parameters.AddWithValue("@MovieName", Title);
-                    cmd.ExecuteNonQuery();
-                    cmd1.ExecuteNonQuery();
+                    conn.GetConnection();
+                    UpdateCounter = "update Movie set Visit_Counter=Visit_Counter+1 where MovieName=@MovieName ";
+                    SetPoster = "update Movie set Picture=@Picture where MovieName=@MovieName";
+                    counter = new SqlCommand(UpdateCounter, conn.GetConnection());
+                    counter.Parameters.AddWithValue("@MovieName", Title);
+                    poster = new SqlCommand(SetPoster, conn.GetConnection());
+                    poster.Parameters.AddWithValue("@Picture", ImageLink);
+                    poster.Parameters.AddWithValue("@MovieName", Title);
+                    counter.ExecuteNonQuery();
+                    poster.ExecuteNonQuery();
                     rdr.Close();
                 }
                 catch (Exception)
@@ -82,12 +76,11 @@ namespace MovieServiceFinalProject
                 }
                 finally
                 {
-                    conn.Close();
+                    DBUtility close = new DBUtility();
+                    close.CloseConnection();
                 }
 
             }
-
-
             else
             {
                 LabelMessages.Text = "Movie not found";

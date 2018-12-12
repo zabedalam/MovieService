@@ -9,6 +9,8 @@ using System.Net;
 using System.Xml;
 using System.Xml.Xsl;
 using System.Data.SqlClient;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace MovieServiceFinalProject
 {
@@ -59,25 +61,25 @@ namespace MovieServiceFinalProject
                 LabelWriter.Text += " " + nodelist[0].SelectSingleNode("@writer").InnerText;
 
                 //INCREASE NUMBER OF VISITED MOVIE AND DOWNLOAD POSTER OF MOVIE
-                SqlConnection conn = new SqlConnection(@"data source = .\Sqlexpress; integrated security = true; database = MovieFlex");
-                SqlCommand cmd = null;
-                SqlCommand cmd1 = null;
+                SqlCommand counter = null;
+                SqlCommand poster = null;
                 SqlDataReader rdr = null;
-                string sqlsel = "";
-                string sqlsel1 = "";
+                string UpdateCounter = "";
+                string SetPoster = "";
+                DBUtility conn=new DBUtility();
+
                 try
                 {
-                    conn.Open();
-
-                    sqlsel = "update Movie set Visit_Counter=Visit_Counter+1 where MovieName=@MovieName ";
-                    sqlsel1 = "update Movie set Picture=@Picture where MovieName=@MovieName";
-                    cmd = new SqlCommand(sqlsel, conn);
-                    cmd.Parameters.AddWithValue("@MovieName", Title);
-                    cmd1 = new SqlCommand(sqlsel1, conn);
-                    cmd1.Parameters.AddWithValue("@Picture", ImageLink);
-                    cmd1.Parameters.AddWithValue("@MovieName", Title);
-                    cmd.ExecuteNonQuery();
-                    cmd1.ExecuteNonQuery();
+                    conn.GetConnection();
+                    UpdateCounter = "update Movie set Visit_Counter=Visit_Counter+1 where MovieName=@MovieName ";
+                    SetPoster = "update Movie set Picture=@Picture where MovieName=@MovieName";
+                    counter = new SqlCommand(UpdateCounter, conn.GetConnection());
+                    counter.Parameters.AddWithValue("@MovieName", Title);
+                    poster = new SqlCommand(SetPoster, conn.GetConnection());
+                    poster.Parameters.AddWithValue("@Picture", ImageLink);
+                    poster.Parameters.AddWithValue("@MovieName", Title);
+                    counter.ExecuteNonQuery();
+                    poster.ExecuteNonQuery();
                     rdr.Close();
                 }
                 catch (Exception)
@@ -87,10 +89,33 @@ namespace MovieServiceFinalProject
                 }
                 finally
                 {
-                    conn.Close();
+                    DBUtility close = new DBUtility();
+                    close.CloseConnection();
                 }
-                
-            }
+
+                     //MOVIE TRAILER
+                    string result1;
+                    var year = "";
+                    var searchName = TextBoxSearch.Text.Trim() + year.ToString() + "Movie Trailer";
+                    string youTubeApi = $"https://www.googleapis.com/youtube/v3/search?&part=snippet&q={searchName}&type=tralier&key={Token.trailerToken}";
+                    result1 = client.DownloadString(youTubeApi);
+                    var movieSearchResult = JsonConvert.DeserializeObject<JObject>(result1);
+                    var items = movieSearchResult["items"];
+                    var videoId = items[0]["id"]["videoId"];
+                    string checkVideo = videoId == null ? "" : videoId.ToString();
+
+                    if (checkVideo != "")
+                    {
+                        LabelTralier.Text = "This movie tralier found";
+                        youTubeTrailer.Src = $"https://www.youtube.com/embed/{checkVideo}";
+                    }
+                    else
+                    {
+                        youTubeTrailer.Src = "";
+                        LabelTralier.Text = "This movie tralier not found";
+                    }
+
+                }
 
 
             else

@@ -8,11 +8,13 @@ namespace MovieServiceFinalProject
 {
     public class DBUtility
     {
-        private SqlConnection conn;
-        public SqlConnection GetConnection()
+        public  SqlConnection conn;
+
+
+        public  SqlConnection GetConnection()
         {
             //CONNECT TO DB
-            String StrConn = @"data source = .\Sqlexpress; integrated security = true; database = MovieFlex";
+            string StrConn = @"data source = .\Sqlexpress; integrated security = true; database = MovieFlex";
             conn = new SqlConnection(StrConn);
             conn.Open();
             return conn;
@@ -40,5 +42,10 @@ namespace MovieServiceFinalProject
                 this.conn.Close();
             }
         }
+
+        //internal void Open()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

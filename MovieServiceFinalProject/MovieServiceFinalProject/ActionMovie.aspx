@@ -31,39 +31,23 @@
             <asp:Image ID="ImagePoster" runat="server" Height="319px" ImageUrl="~/MyFiles/titanic.jpg" Width="320px" />
             <br />
             <br />
-            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
-                 <HeaderTemplate>
-                <table class="mytable">
-                    <tr>
-                        
-                        <td class="myheader">MovieName</td>
-                        <%--<td class="myheader">ReleaseYear</td>--%>
-                        
-                        <td class="myheader">Picture</td>
-                    </tr>
-                
-            </HeaderTemplate>
-                <ItemTemplate>
-                    <tr>
-                        
-                        <td class="myItem"><%#Eval("MovieName") %></td>
-                        <%--<td class="myItem"><%#Eval("ReleaseYear") %></td>--%>
-                        <%--<div class="col-sm-6"></div>--%>
-                        <td class="myItem"><img src="<%#Eval("Picture") %>" alt="Movie"/></td>
-
-
-                    </tr>
-
-                </ItemTemplate>
-                 <FooterTemplate>
-                    </table>
-                </FooterTemplate>
-            </asp:Repeater>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MovieFlexConnectionString2 %>" SelectCommand="SELECT top 6 [MovieName], [Picture] FROM [Movie] where FilmCategoryID=1  order by Visit_Counter desc"></asp:SqlDataSource>
             <br />
+            <br />
+                <br />
             <br />
             <asp:Xml ID="XmltoXmlCommercial" runat="server" DocumentSource="~/XMLCommercial.xml" TransformSource="~/XSLTCommercial.xslt"></asp:Xml>
+        
+            <br />
+            <br />
+        
+            <br/>
+            <iframe id="youTubeTrailer" runat="server" width="560" height="315" frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen= "allowfullscreen"></iframe>
+            <br />
+            <asp:Label ID="LabelTralier" runat="server" Text="Tralier's status"></asp:Label>
+            <br />
+            <br />
         </div>
+
     </form>
 </body>
 </html>
