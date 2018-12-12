@@ -81,6 +81,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APIConnection.cs" />
     <Compile Include="DBUtility.cs" />
     <Compile Include="IndexPopulateMovie.aspx.cs">
       <DependentUpon>IndexPopulateMovie.aspx</DependentUpon>

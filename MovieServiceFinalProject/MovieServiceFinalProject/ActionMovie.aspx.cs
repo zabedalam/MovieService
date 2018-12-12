@@ -32,12 +32,15 @@ namespace MovieServiceFinalProject
 
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
-            WebClient client = new WebClient();
+            //WebClient client = new WebClient();
             string result = "";
 
             // substitute " " with "+"
-            string myselection = TextBoxSearch.Text.Replace(' ', '+');
-            result = client.DownloadString("http://www.omdbapi.com/?t=" + myselection + "&r=xml&apikey=" + Token.token);
+            //string myselection = TextBoxSearch.Text.Replace(' ', '+');
+            //result = client.DownloadString("http://www.omdbapi.com/?t=" + myselection + "&r=xml&apikey=" + Token.token);
+            if (TextBoxSearch.Text == "") TextBoxSearch.Text = "No Name";
+            APIConnection getmovie = new APIConnection();
+            result= getmovie.SearchAPI(TextBoxSearch.Text);
             File.WriteAllText(Server.MapPath("~/MyFiles/Latestresult.xml"), result);
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(result);
@@ -51,6 +54,9 @@ namespace MovieServiceFinalProject
                     string id = node.SelectSingleNode("@poster").InnerText;
                     ImagePoster.ImageUrl = id;
                 }
+                //var Items = nodelist[0].SelectSingleNode("@items").InnerText;
+                //var videoId = nodelist[0].SelectSingleNode("@videoId").InnerText;
+                //var Year = nodelist[0].SelectSingleNode("@year").InnerText;
                 var Title = nodelist[0].SelectSingleNode("@title").InnerText;
                 var ImageLink = nodelist[0].SelectSingleNode("@poster").InnerText;
                 LabelResult.Text = " Rating " + nodelist[0].SelectSingleNode("@imdbRating").InnerText;
@@ -93,16 +99,26 @@ namespace MovieServiceFinalProject
                     close.CloseConnection();
                 }
 
-                     //MOVIE TRAILER
-                    string result1;
-                    var year = "";
-                    var searchName = TextBoxSearch.Text.Trim() + year.ToString() + "Movie Trailer";
-                    string youTubeApi = $"https://www.googleapis.com/youtube/v3/search?&part=snippet&q={searchName}&type=tralier&key={Token.trailerToken}";
-                    result1 = client.DownloadString(youTubeApi);
-                    var movieSearchResult = JsonConvert.DeserializeObject<JObject>(result1);
-                    var items = movieSearchResult["items"];
-                    var videoId = items[0]["id"]["videoId"];
-                    string checkVideo = videoId == null ? "" : videoId.ToString();
+                //MOVIE TRAILER
+                //string result = "";
+                //result = UtilityClass.TrailerAPI(name.ToString(), Convert.ToInt32(year));
+                //var movieSearchResult = JsonConvert.DeserializeObject<JObject>(result);
+                //File.WriteAllText(Server.MapPath("~/MyFiles/LatestTrailer.json"), result);
+                //var items = movieSearchResult["items"];
+                //var videoId = items[0]["id"]["videoId"];
+                //string checkVideo = videoId == null ? "" : videoId.ToString();
+
+                WebClient client = new WebClient();
+                string result1 = "";
+                var year = "";
+                var searchName = TextBoxSearch.Text.Trim() + year.ToString() + "Movie Trailer";
+                string youTubeApi = $"https://www.googleapis.com/youtube/v3/search?&part=snippet&q={searchName}&type=tralier&key={Token.trailerToken}";
+                result1 = client.DownloadString(youTubeApi);
+               
+                var movieSearchResult = JsonConvert.DeserializeObject<JObject>(result1);
+                var items = movieSearchResult["items"];
+                var videoId = items[0]["id"]["videoId"];
+                string checkVideo = videoId == null ? "" : videoId.ToString();
 
                     if (checkVideo != "")
                     {
