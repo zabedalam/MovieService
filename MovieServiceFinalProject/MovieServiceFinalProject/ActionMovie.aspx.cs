@@ -55,8 +55,10 @@ namespace MovieServiceFinalProject
                     ImagePoster.ImageUrl = id;
                 }
                 //var Items = nodelist[0].SelectSingleNode("@items").InnerText;
-                //var videoId = nodelist[0].SelectSingleNode("@videoId").InnerText;
-                //var Year = nodelist[0].SelectSingleNode("@year").InnerText;
+                //var videoId = nodelist[0].SelectSingleNode("@videoID").InnerText;
+                 var Year = nodelist[0].SelectSingleNode("@year").InnerText;
+                 
+
                 var Title = nodelist[0].SelectSingleNode("@title").InnerText;
                 var ImageLink = nodelist[0].SelectSingleNode("@poster").InnerText;
                 LabelResult.Text = " Rating " + nodelist[0].SelectSingleNode("@imdbRating").InnerText;
@@ -107,20 +109,31 @@ namespace MovieServiceFinalProject
                 //var items = movieSearchResult["items"];
                 //var videoId = items[0]["id"]["videoId"];
                 //string checkVideo = videoId == null ? "" : videoId.ToString();
+                //............
 
+                //string trailerresult = "";
+
+                //APIConnection trailer = new APIConnection();
+                //trailerresult = trailer.SearchTrailerAPI(Title.ToString(), Convert.ToInt32(Year));
+                //var movieSearchResult = JsonConvert.DeserializeObject<JObject>(trailerresult);
+                //File.WriteAllText(Server.MapPath("~/MyFiles/LatestTrailer.json"), trailerresult);
+                //var items = movieSearchResult["items"];
+                //var videoId = items[0]["id"]["videoId"];
+                //string checkVideo = videoId == null ? "" : videoId.ToString();
+                //..................
                 WebClient client = new WebClient();
                 string result1 = "";
                 var year = "";
                 var searchName = TextBoxSearch.Text.Trim() + year.ToString() + "Movie Trailer";
                 string youTubeApi = $"https://www.googleapis.com/youtube/v3/search?&part=snippet&q={searchName}&type=tralier&key={Token.trailerToken}";
                 result1 = client.DownloadString(youTubeApi);
-               
+
                 var movieSearchResult = JsonConvert.DeserializeObject<JObject>(result1);
                 var items = movieSearchResult["items"];
                 var videoId = items[0]["id"]["videoId"];
                 string checkVideo = videoId == null ? "" : videoId.ToString();
 
-                    if (checkVideo != "")
+                if (checkVideo != "")
                     {
                         LabelTralier.Text = "This movie tralier found";
                         youTubeTrailer.Src = $"https://www.youtube.com/embed/{checkVideo}";

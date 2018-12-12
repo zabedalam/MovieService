@@ -17,11 +17,11 @@ namespace MovieServiceFinalProject
         }
         public string SearchTrailerAPI(string query, int year)
         {
+           
             WebClient client = new WebClient();
             string clearquery = query.Replace(" ", "+");
             string searchWord = clearquery + year + "Movie Trailer";
             string result = "";
-
             string youtubeAPI = $"https://www.googleapis.com/youtube/v3/search?&part=snippet&q={searchWord}&type=trailer&key={Token.trailerToken}";
             result = client.DownloadString(youtubeAPI);
             return result;
