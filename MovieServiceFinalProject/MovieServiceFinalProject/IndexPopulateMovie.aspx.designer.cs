@@ -22,6 +22,24 @@ namespace MovieServiceFinalProject {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// TextBoxInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxInput;
+        
+        /// <summary>
+        /// ButtonFindMovie control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonFindMovie;
+        
+        /// <summary>
         /// ButtonActionMovie control.
         /// </summary>
         /// <remarks>
@@ -65,24 +83,6 @@ namespace MovieServiceFinalProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox ListBoxPopulateMovie;
-        
-        /// <summary>
-        /// TextBoxInput control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxInput;
-        
-        /// <summary>
-        /// ButtonFindMovie control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonFindMovie;
         
         /// <summary>
         /// LabelMovieInfo control.
@@ -155,6 +155,24 @@ namespace MovieServiceFinalProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelMessages;
+        
+        /// <summary>
+        /// youTubeTrailer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlIframe youTubeTrailer;
+        
+        /// <summary>
+        /// LabelTralier control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelTralier;
         
         /// <summary>
         /// Repeater1 control.
