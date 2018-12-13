@@ -1,5 +1,4 @@
 ﻿<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="IndexPopulateMovie.aspx.cs" Inherits="MovieServiceFinalProject.IndexPopulateMovie" %>--%>
-
 <%--<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -37,13 +36,25 @@
         &nbsp;
         </div>
   </div>
-        <div>
+        <div style="margin-left: 120px">
             <asp:Button ID="ButtonActionMovie" runat="server" Text="Action Movie" OnClick="ButtonActionMovie_Click" Width="155px" />
             <asp:Button ID="ButtonAnimationMovie" runat="server" Text="Animation Movie" OnClick="ButtonAnimationMovie_Click" Width="155px" />
             <asp:Button ID="ButtonThrillerMovie" runat="server" Text="Thriller Movie" OnClick="ButtonThrillerMovie_Click" Width="155px" />
             <asp:Button ID="ButtonScienceFictionMovie" runat="server" Text="Science Fiction Movie" OnClick="ButtonScienceFictionMovie_Click" Width="155px" />
             <br />
-            <asp:ListBox ID="ListBoxPopulateMovie" runat="server" OnSelectedIndexChanged="ListBoxPopulateMovie_SelectedIndexChanged" Height="184px" Width="166px"></asp:ListBox>
+            <br />
+            <asp:Label ID="LabelListBox" runat="server" Text="Select Movie"></asp:Label>
+            <br />
+            
+                <div class="row">
+                    <div class="col-3">
+                        <div class="list-group">
+            <asp:ListBox ID="ListBoxPopulateMovie" runat="server" OnSelectedIndexChanged="ListBoxPopulateMovie_SelectedIndexChanged" Height="321px" Width="206px">
+            
+            </asp:ListBox>
+                </div>
+                </div>
+                </div>
             <br />
             <br />
             <br />
@@ -68,27 +79,33 @@
             <br />
             <asp:Label ID="LabelTralier" runat="server" Text="Tralier's status"></asp:Label>
             <br />
+            <div class="container repeaterDiv">
             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                  <HeaderTemplate>
-                <table class="mytable">
+                <table class="row container">
                     <tr>
                         
-                        <td class="myheader">MovieName</td>
-                        <td class="myheader">ReleaseYear</td>
+                        <%--<td class="myheader">MovieName</td>--%>
+                        <%--<td class="myheader">ReleaseYear</td>--%>
                         
-                        <td class="myheader">Picture</td>
+                        <%--<td class="myheader">Picture</td>--%>
                     </tr>
                 
             </HeaderTemplate>
                  <ItemTemplate>
-                    <tr>
+                    <tr class="col-sm-2" style="display:inline-block;">
+                        <div class="wrapper">
                         
                         <td class="myItem"><%#Eval("MovieName") %></td>
-                        <td class="myItem"><%#Eval("ReleaseYear") %></td>
+                        <%--<td class="myItem"><%#Eval("ReleaseYear") %></td>--%>
                         <%--<div class="col-sm-6"></div>--%>
-                        <td class="myItem"><img src="<%#Eval("Picture") %>" alt="Movie"/></td>
+                        <td class="poster" style="display:flex; justify-content:center;">
+                            <%--<a class="caption" href="#" runat="server" id="anchor2" onserverclick="anchor2_ServerClick">
+                                <%# DataBinder.Eval(Container.DataItem,"MovieName") %></a>--%>
+                            <img src="<%# DataBinder.Eval(Container.DataItem,"Picture") %>" alt="Poster-url" height="200vh" />
+                            <%--<img src="<%#Eval("Picture") %>" alt="Movie"/>--%></td>
 
-
+                    </div>
                     </tr>
 
                 </ItemTemplate>
