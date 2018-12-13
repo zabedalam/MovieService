@@ -17,22 +17,22 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <title></title>
+    <title>MOVIE PROJECT</title>
   </head>
 <body>
     <form id="form1" runat="server">
         <div class="container-fluid">
         <div class="row">
-            <div class="col p-3 shadow-lg text-dark d-flex justify-content-around">
+            <div class="col p-3  text-dark d-flex justify-content-around">
                 <img src="\Picture\movielogo.png" class="img-fluid w-25 h-75" alt="Movie">
                 <br />
             </div>
         </div>  
     </div>
         <div class="row">
-    <div class="col-12 bg-warning text-white" >
-        &nbsp;&nbsp;&nbsp;<asp:TextBox ID="TextBoxInput" runat="server" Width="418px"></asp:TextBox>
-            &nbsp;<asp:Button ID="ButtonFindMovie" runat="server" CssClass="btn btn-primary" Text="Search" OnClick="ButtonFindMovie_Click" Width="77px" />
+    <div class="col offset-8  text-white" >
+        &nbsp;&nbsp;&nbsp;<asp:TextBox ID="TextBoxInput" runat="server" MaxLength="100" Height="30px" OnTextChanged="TextBoxInput_TextChanged"></asp:TextBox>
+            &nbsp;<asp:Button ID="ButtonFindMovie" runat="server" Class="btn btn-outline-dark" Text="Search" OnClick="ButtonFindMovie_Click" Width="77px" />
         &nbsp;
         </div>
   </div>
@@ -43,35 +43,42 @@
             <asp:Button ID="ButtonScienceFictionMovie" runat="server" Text="Science Fiction Movie" OnClick="ButtonScienceFictionMovie_Click" Width="155px" />
             <br />
             <br />
+            </div>
+        
             <asp:Label ID="LabelListBox" runat="server" Text="Select Movie"></asp:Label>
-            <br />
             
                 <div class="row">
-                    <div class="col-3">
-                        <div class="list-group">
-            <asp:ListBox ID="ListBoxPopulateMovie" runat="server" OnSelectedIndexChanged="ListBoxPopulateMovie_SelectedIndexChanged" Height="321px" Width="206px">
+                    <div class="col  list-group"> 
+        <asp:ListBox ID="ListBoxPopulateMovie" runat="server" OnSelectedIndexChanged="ListBoxPopulateMovie_SelectedIndexChanged" Height="321px" Width="206px">
             
             </asp:ListBox>
-                </div>
-                </div>
-                </div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <asp:Label ID="LabelMovieInfo" runat="server" Text="Movie Info"></asp:Label>
-            <br />
+                        </div>
+              <div class="col">              
+                   <asp:Image ID="ImagePoster" runat="server" DescriptionUrl="~/MyFiles/titanic.jpg" class="img-thumbnail" />
+          
+                <div class="col">
+                    <asp:Label ID="LabelMovieInfo" runat="server" Text="Movie Info"></asp:Label>
+             <br />
             <asp:Label ID="LabelRatings" runat="server" Text="Ratings"></asp:Label>
-            <br />
+             <br />
             <asp:Label ID="LabelYear" runat="server" Text="Year"></asp:Label>
-            <br />
+             <br />
             <asp:Label ID="LabelActors" runat="server" Text="Actors"></asp:Label>
-            <br />
+             <br />
             <asp:Label ID="LabelDirector" runat="server" Text="Director"></asp:Label>
-            <br />
+             <br />
             <asp:Label ID="LabelWriter" runat="server" Text="Writer"></asp:Label>
+            
+                    </div>
+                  </div>
+                </div>
             <br />
-            <asp:Image ID="ImagePoster" runat="server" DescriptionUrl="~/MyFiles/titanic.jpg" />
+            <br />
+            <br />
+            <br />
+            
+        
+            
             <br />
             <asp:Label ID="LabelMessages" runat="server" Text="No Messages"></asp:Label>
             <br />
