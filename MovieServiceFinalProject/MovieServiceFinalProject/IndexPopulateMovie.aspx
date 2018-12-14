@@ -28,16 +28,27 @@
             </div>
         </div>  
     </div>
+      
         <div class="row">
+            
+
+            <div class="form-inline ml-auto col-sm-9" >
+            &nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="TextBoxInput" class="form-control mr-2 shadow-lg" placeholder="search movie" runat="server" width="500px" Height="40px" OnTextChanged="TextBoxInput_TextChanged"></asp:TextBox>
+            
+                <asp:Button ID="ButtonFindMovie" runat="server" Class="btn btn-outline-dark"  Text="Search" OnClick="ButtonFindMovie_Click" Width="77px" />
+            
+            </div>
+        <%--<div class="row">
             
 
             <div class="col-4 text-white" >
             &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="TextBoxInput" runat="server" MaxLength="100" Height="30px" OnTextChanged="TextBoxInput_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="TextBoxInput" class="form-control mr-2" placeholder="search" runat="server" MaxLength="100" Height="30px" OnTextChanged="TextBoxInput_TextChanged"></asp:TextBox>
             &nbsp;
                 <asp:Button ID="ButtonFindMovie" runat="server" Class="btn btn-outline-dark" Text="Search" OnClick="ButtonFindMovie_Click" Width="77px" />
             &nbsp;
-            </div>
+            </div>--%>
             </div>
            
   <%--</div>
@@ -51,8 +62,51 @@
             <br />
         </div>
   </div>   --%>
+        <%--//////............
+         <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+        //////////............--%>
+         <nav class="navbar navbar-expand-sm navbar-light bg-light">
+         <div class="container col-6">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            
+            <asp:Button ID="Button1" runat="server" Class="btn btn-outline-dark btn-md" Text="Action Movie" OnClick="ButtonActionMovie_Click"/>
+</li>
+            <li class="nav-item">
+            <asp:Button ID="Button2" runat="server" Class="btn btn-outline-dark btn-md" Text="Animation Movie" OnClick="ButtonAnimationMovie_Click" />
+</li>
+             <li class="nav-item">
+            <asp:Button ID="Button3" runat="server" Class="btn btn-outline-dark btn-md" Text="Thriller Movie" OnClick="ButtonThrillerMovie_Click" />
+                 </li>
+             <li class="nav-item">
+            <asp:Button ID="Button4" runat="server" Class="btn btn-outline-dark btn-md" Text="Science Fiction Movie" OnClick="ButtonScienceFictionMovie_Click" />
+                  </li>
+            </ul>
+        </div>
+              </nav>
+       </div> 
+  
       
-        <div class="row">
+       <%-- <div class="row">
         <div class="col">
             
             <asp:Button ID="Button1" runat="server" Class="btn btn-outline-dark btn-lg" Text="Action Movie" OnClick="ButtonActionMovie_Click"/>
@@ -61,7 +115,7 @@
             <asp:Button ID="Button4" runat="server" Class="btn btn-outline-dark btn-lg" Text="Science Fiction Movie" OnClick="ButtonScienceFictionMovie_Click" />
         </div>
        </div> 
-  
+  --%>
 
   </div>
         <div class¨="row">
@@ -103,17 +157,21 @@
         
             
             <br />
-        <div class="col-12">
+        <%--<div class="row">--%>
+        <div  class="embed-responsive embed-responsive-16by9 col-sm-12">
+            
             <asp:Label ID="LabelMessages" runat="server" Text="No Messages"></asp:Label>
             <br />
-             <iframe id="youTubeTrailer" runat="server" width="560" height="315" frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen= "allowfullscreen"></iframe>
+             <iframe id="youTubeTrailer" runat="server" width="320" height="240" frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen= "allowfullscreen"></iframe>
             <br />
             <asp:Label ID="LabelTralier" runat="server" Text="Tralier's status"></asp:Label>
+                </video>
             </div>
+            <%--</div>--%>
             <br />
         
             <br />
-            <div class="container repeaterDiv col-12">
+            <div class="container repeaterDiv col-sm-12">
                 <asp:Label ID="LabelTopTen" runat="server" Text="Top Ten Movies"></asp:Label>
             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                  <HeaderTemplate>

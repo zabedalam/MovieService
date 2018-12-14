@@ -44,6 +44,15 @@ namespace MovieServiceFinalProject
         protected void ListBoxPopulateMovie_SelectedIndexChanged(object sender, EventArgs e)
         {
             TextBoxInput.Text = ListBoxPopulateMovie.SelectedValue;
+            if (ListBoxPopulateMovie.SelectedIndex!= -1)
+            {
+                ButtonFindMovie.Enabled = true;
+               
+            }
+            else
+            {
+                LabelMessages.Text = "no";
+            }
         }
 
         protected void ButtonFindMovie_Click(object sender, EventArgs e)
@@ -285,6 +294,10 @@ namespace MovieServiceFinalProject
         {
 
         }
+    }
+
+    internal class privat
+    {
     }
 }
     
