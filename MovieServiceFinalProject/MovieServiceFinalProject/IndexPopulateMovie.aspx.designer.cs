@@ -40,40 +40,40 @@ namespace MovieServiceFinalProject {
         protected global::System.Web.UI.WebControls.Button ButtonFindMovie;
         
         /// <summary>
-        /// ButtonActionMovie control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonActionMovie;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// ButtonAnimationMovie control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAnimationMovie;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// ButtonThrillerMovie control.
+        /// Button3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonThrillerMovie;
+        protected global::System.Web.UI.WebControls.Button Button3;
         
         /// <summary>
-        /// ButtonScienceFictionMovie control.
+        /// Button4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonScienceFictionMovie;
+        protected global::System.Web.UI.WebControls.Button Button4;
         
         /// <summary>
         /// LabelListBox control.
@@ -182,6 +182,15 @@ namespace MovieServiceFinalProject {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelTralier;
+        
+        /// <summary>
+        /// LabelTopTen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelTopTen;
         
         /// <summary>
         /// Repeater1 control.

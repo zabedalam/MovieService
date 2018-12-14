@@ -151,7 +151,7 @@ namespace MovieServiceFinalProject
 
                 if (checkVideo != "")
                 {
-                    LabelTralier.Text = "This movie tralier found";
+                    //LabelTralier.Text = "This movie tralier found";
                     youTubeTrailer.Src = $"https://www.youtube.com/embed/{checkVideo}";
                 }
                 else
