@@ -14,7 +14,7 @@
             <br />
             <asp:Label ID="LabelRatings" runat="server" Text="Ratings"></asp:Label>
             <br />
-            <asp:Label ID="LabelYear" runat="server" Text="Year"></asp:Label>
+            <asp:Label ID="LabelYear" runat="server" Text="Release Year"></asp:Label>
             <br />
             <asp:Label ID="LabelWriter" runat="server" Text="Writer"></asp:Label>
             <br />
