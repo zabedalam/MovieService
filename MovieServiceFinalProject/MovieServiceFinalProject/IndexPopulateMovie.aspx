@@ -69,7 +69,7 @@
        
         <div class="row">
                     <div class="col-2" style="margin-left:20px"> 
-                        <asp:Label ID="Label1" runat="server" Text="Select Movie" BorderStyle="None" ForeColor="#66FF33"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="Select Movie" BorderStyle="None"></asp:Label>
                         <asp:ListBox ID="ListBoxPopulateMovie" runat="server" 
                             OnSelectedIndexChanged="ListBoxPopulateMovie_SelectedIndexChanged" Height="430px" Width="210px">
                         </asp:ListBox>
@@ -77,7 +77,7 @@
               <div class="col-3">              
                    <asp:Image ID="ImagePoster" runat="server" DescriptionUrl="~/MyFiles/titanic.jpg" class="img-thumbnail shadow-lg" />
                </div>
-                <div class="col-3 jumbotron">
+                <div class="col-3 jumbotron h-auto">
                     <asp:Label ID="LabelMovieInfo" runat="server" Text="Movie Info" ></asp:Label>
              <br />
             <asp:Label ID="LabelRatings" runat="server" Text="Ratings" ></asp:Label>

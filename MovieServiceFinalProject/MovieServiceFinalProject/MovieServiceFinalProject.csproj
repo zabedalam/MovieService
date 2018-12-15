@@ -84,7 +84,6 @@
     <Content Include="logo\logo3.jpg" />
     <Content Include="logo\logo4.jpg" />
     <Content Include="MyFiles\titanic.jpg" />
-    <Content Include="ActionMovie.aspx" />
     <Content Include="Picture\movielogo.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -121,7 +120,6 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="SearchEngineen.aspx" />
     <Content Include="Web.config" />
     <Content Include="XMLCommercial.xml" />
     <Content Include="XSLTCommercial.xslt">
@@ -139,22 +137,7 @@
       <DependentUpon>IndexPopulateMovie.aspx</DependentUpon>
     </Compile>
     <Compile Include="MovieContainer.cs" />
-    <Compile Include="PopulateListBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ActionMovie.aspx.cs">
-      <DependentUpon>ActionMovie.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ActionMovie.aspx.designer.cs">
-      <DependentUpon>ActionMovie.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SearchEngineen.aspx.cs">
-      <DependentUpon>SearchEngineen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SearchEngineen.aspx.designer.cs">
-      <DependentUpon>SearchEngineen.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Token.cs" />
     <Compile Include="XML.cs" />
   </ItemGroup>
