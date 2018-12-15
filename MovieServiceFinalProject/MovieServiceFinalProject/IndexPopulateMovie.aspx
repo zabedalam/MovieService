@@ -60,16 +60,16 @@
             </ul>
         </div>
               </nav>
-       </div> 
+       <%--</div>--%> 
   
       
       
 
-  </div>
+  <%--</div>--%>
        
         <div class="row">
                     <div class="col-2" style="margin-left:20px"> 
-                        <asp:Label ID="Label1" runat="server" Text="Select Movie"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="Select Movie" BorderStyle="None" ForeColor="#66FF33"></asp:Label>
                         <asp:ListBox ID="ListBoxPopulateMovie" runat="server" 
                             OnSelectedIndexChanged="ListBoxPopulateMovie_SelectedIndexChanged" Height="430px" Width="210px">
                         </asp:ListBox>
@@ -77,18 +77,18 @@
               <div class="col-3">              
                    <asp:Image ID="ImagePoster" runat="server" DescriptionUrl="~/MyFiles/titanic.jpg" class="img-thumbnail shadow-lg" />
                </div>
-                <div class="col-3 jumbotron h-auto">
-                    <asp:Label ID="LabelMovieInfo" runat="server" Text="Movie Info"></asp:Label>
+                <div class="col-3 jumbotron">
+                    <asp:Label ID="LabelMovieInfo" runat="server" Text="Movie Info" ></asp:Label>
              <br />
-            <asp:Label ID="LabelRatings" runat="server" Text="Ratings"></asp:Label>
+            <asp:Label ID="LabelRatings" runat="server" Text="Ratings" ></asp:Label>
              <br />
-            <asp:Label ID="LabelYear" runat="server" Text="Year"></asp:Label>
+            <asp:Label ID="LabelYear" runat="server" Text="Year" ></asp:Label>
              <br />
-            <asp:Label ID="LabelActors" runat="server" Text="Actors"></asp:Label>
+            <asp:Label ID="LabelActors" runat="server" Text="Actors" ></asp:Label>
              <br />
-            <asp:Label ID="LabelDirector" runat="server" Text="Director"></asp:Label>
+            <asp:Label ID="LabelDirector" runat="server" Text="Director" ></asp:Label>
              <br />
-            <asp:Label ID="LabelWriter" runat="server" Text="Writer"></asp:Label>
+            <asp:Label ID="LabelWriter" runat="server" Text="Writer" ></asp:Label>
             
                     </div>
                 
@@ -104,7 +104,7 @@
         
             
             <br />
-        <%--<div class="row">--%>
+        <div class="row">
         <div  class="embed-responsive embed-responsive-16by9 col-sm-12">
             
             <asp:Label ID="LabelMessages" runat="server" Text="No Messages"></asp:Label>
@@ -114,7 +114,7 @@
             <asp:Label ID="LabelTralier" runat="server" Text="Tralier's status"></asp:Label>
                 
             </div>
-            <%--</div>--%>
+            </div>
             <br />
         
             <br />

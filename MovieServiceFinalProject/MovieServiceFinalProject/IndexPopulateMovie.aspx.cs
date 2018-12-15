@@ -23,19 +23,23 @@ namespace MovieServiceFinalProject
            if (!Page.IsPostBack)
             {
 
-                PopulateListBox.Populate(ListBoxPopulateMovie);
+                //PopulateListBox.Populate(ListBoxPopulateMovie);
                 ListBoxPopulateMovie.AutoPostBack = true;
                 
             }
             TransformXslt();
 
-
+            Show();
         }
         
-
+        public void Show()
+        {
+            MovieContainer action = new MovieContainer();
+            action.ActionMovie(ListBoxPopulateMovie);
+        }
         protected void ButtonActionMovie_Click(object sender, EventArgs e)
         {
-            // Response.Redirect("ActionMovie.aspx");
+            
             ListBoxPopulateMovie.Items.Clear();
             MovieContainer action = new MovieContainer();
             action.ActionMovie(ListBoxPopulateMovie);
@@ -306,9 +310,9 @@ namespace MovieServiceFinalProject
         }
     }
 
-    internal class privat
-    {
-    }
+    //internal class privat
+    //{
+    //}
 }
     
 
