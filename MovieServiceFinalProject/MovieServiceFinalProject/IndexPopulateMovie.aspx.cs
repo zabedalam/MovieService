@@ -27,8 +27,9 @@ namespace MovieServiceFinalProject
                 ListBoxPopulateMovie.AutoPostBack = true;
                 
             }
+            TransformXslt();
 
-            
+
         }
         
 
@@ -281,6 +282,15 @@ namespace MovieServiceFinalProject
             MovieContainer sci = new MovieContainer();
             sci.ScienceMovie(ListBoxPopulateMovie);
             
+        }
+        //Transform XSLT
+        public void TransformXslt()
+        {
+            string sourcefile1 = Server.MapPath("XMLCommercial.xml");
+            string xsltfile1 = Server.MapPath("XSLTCommercial.xslt");
+            string destinationfile1 = Server.MapPath("CommercialTransformed.xml");
+            XML xslt1 = new XML(sourcefile1, xsltfile1, destinationfile1);
+            xslt1.Transform();
         }
 
         protected void Button1_Click(object sender, EventArgs e)

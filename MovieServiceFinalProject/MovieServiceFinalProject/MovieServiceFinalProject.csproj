@@ -79,6 +79,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="IndexPopulateMovie.aspx" />
+    <Content Include="logo\logo1.jpg" />
+    <Content Include="logo\logo2.jpg" />
+    <Content Include="logo\logo3.jpg" />
+    <Content Include="logo\logo4.jpg" />
     <Content Include="MyFiles\titanic.jpg" />
     <Content Include="ActionMovie.aspx" />
     <Content Include="Picture\movielogo.png" />

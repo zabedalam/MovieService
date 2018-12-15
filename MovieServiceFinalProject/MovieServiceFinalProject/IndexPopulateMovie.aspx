@@ -14,78 +14,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 
     <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <title>MOVIE PROJECT</title>
   </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="container-fluid">
-        <div class="row">
-            <div class="col p-3  text-dark d-flex justify-content-around">
-                <img src="\Picture\movielogo.png" class="img-fluid w-25 h-75" alt="Movie">
+    <form id="form1" runat="server" style="background-color:#424242">
+        <div class="container-fluid d-flex justify-content-center">
+            
+        <%--<div class="row">
+            <div class="col-9  text-dark d-flex justify-content-around">--%>
+                <img src="\Picture\movielogo.png" class="img-fluid w-25 h-75 " alt="Movie">
                 <br />
             </div>
-        </div>  
+            
+        <%--</div>  
     </div>
-      
+       --%>
         <div class="row">
-            
-
             <div class="form-inline ml-auto col-sm-9" >
-            &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="TextBoxInput" class="form-control mr-2 shadow-lg" placeholder="search movie" runat="server" width="500px" Height="40px" OnTextChanged="TextBoxInput_TextChanged"></asp:TextBox>
-            
-                <asp:Button ID="ButtonFindMovie" runat="server" Class="btn btn-outline-dark"  Text="Search" OnClick="ButtonFindMovie_Click" Width="77px" />
-            
-            </div>
-        <%--<div class="row">
-            
-
-            <div class="col-4 text-white" >
-            &nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="TextBoxInput" class="form-control mr-2" placeholder="search" runat="server" MaxLength="100" Height="30px" OnTextChanged="TextBoxInput_TextChanged"></asp:TextBox>
-            &nbsp;
-                <asp:Button ID="ButtonFindMovie" runat="server" Class="btn btn-outline-dark" Text="Search" OnClick="ButtonFindMovie_Click" Width="77px" />
-            &nbsp;
-            </div>--%>
-            </div>
-           
-  <%--</div>
-        <div class="row">
-            <div style ="margin-left: 120px">
-            <asp:Button ID="ButtonActionMovie" runat="server" Text="Action Movie" OnClick="ButtonActionMovie_Click" Width="155px" />
-            <asp:Button ID="ButtonAnimationMovie" runat="server" Text="Animation Movie" OnClick="ButtonAnimationMovie_Click" Width="155px" />
-            <asp:Button ID="ButtonThrillerMovie" runat="server" Text="Thriller Movie" OnClick="ButtonThrillerMovie_Click" Width="155px" />
-            <asp:Button ID="ButtonScienceFictionMovie" runat="server" Text="Science Fiction Movie" OnClick="ButtonScienceFictionMovie_Click" Width="155px" />
-            <br />
-            <br />
-        </div>
-  </div>   --%>
-        <%--//////............
+                &nbsp;&nbsp;&nbsp;
+                 <asp:TextBox ID="TextBoxInput" class="form-control mr-2 shadow-lg" placeholder="search movie" runat="server" width="500px" Height="40px" OnTextChanged="TextBoxInput_TextChanged"></asp:TextBox>
+            <asp:Button ID="ButtonFindMovie" runat="server" Class="btn btn-outline-yellow-green "   Text="Search" OnClick="ButtonFindMovie_Click" Width="60px" Height="40px" font-size="14px"/>
+             </div>
+      </div>
+ 
+       
          <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-        //////////............--%>
-         <nav class="navbar navbar-expand-sm navbar-light bg-light">
-         <div class="container col-6">
+         <div class="container col-6" >
         <ul class="navbar-nav">
             <li class="nav-item">
             
@@ -106,29 +63,15 @@
        </div> 
   
       
-       <%-- <div class="row">
-        <div class="col">
-            
-            <asp:Button ID="Button1" runat="server" Class="btn btn-outline-dark btn-lg" Text="Action Movie" OnClick="ButtonActionMovie_Click"/>
-            <asp:Button ID="Button2" runat="server" Class="btn btn-outline-dark btn-lg" Text="Animation Movie" OnClick="ButtonAnimationMovie_Click" />
-            <asp:Button ID="Button3" runat="server" Class="btn btn-outline-dark btn-lg" Text="Thriller Movie" OnClick="ButtonThrillerMovie_Click" />
-            <asp:Button ID="Button4" runat="server" Class="btn btn-outline-dark btn-lg" Text="Science Fiction Movie" OnClick="ButtonScienceFictionMovie_Click" />
-        </div>
-       </div> 
-  --%>
+      
 
   </div>
-        <div class¨="row">
-            <div class ="col">
-            <asp:Label ID="LabelListBox" runat="server" Text="Select Movie"></asp:Label>
-
-            </div>
-            </div>
-
-                <div class="row">
+       
+        <div class="row">
                     <div class="col-2" style="margin-left:20px"> 
+                        <asp:Label ID="Label1" runat="server" Text="Select Movie"></asp:Label>
                         <asp:ListBox ID="ListBoxPopulateMovie" runat="server" 
-                            OnSelectedIndexChanged="ListBoxPopulateMovie_SelectedIndexChanged" Height="450px" Width="210px">
+                            OnSelectedIndexChanged="ListBoxPopulateMovie_SelectedIndexChanged" Height="430px" Width="210px">
                         </asp:ListBox>
                     </div>
               <div class="col-3">              
@@ -150,9 +93,13 @@
                     </div>
                 
            <div class="col-3 jumbotron" style="margin-left:22px">
-               jyfhdd
+               <div class="row">
+                   <div class="col">
+               <asp:Xml ID="Xml1" runat="server" DocumentSource="~/XMLCommercial.xml" TransformSource="~/XSLTCommercial.xslt"></asp:Xml>
            </div>
                               </div>
+        </div>
+        </div>
 
         
             
@@ -165,7 +112,7 @@
              <iframe id="youTubeTrailer" runat="server" width="320" height="240" frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen= "allowfullscreen"></iframe>
             <br />
             <asp:Label ID="LabelTralier" runat="server" Text="Tralier's status"></asp:Label>
-                </video>
+                
             </div>
             <%--</div>--%>
             <br />
