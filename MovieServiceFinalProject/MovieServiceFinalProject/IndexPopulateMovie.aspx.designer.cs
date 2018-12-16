@@ -157,13 +157,13 @@ namespace MovieServiceFinalProject {
         protected global::System.Web.UI.WebControls.Label LabelWriter;
         
         /// <summary>
-        /// Xml1 control.
+        /// GridViewCommercial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Xml Xml1;
+        protected global::System.Web.UI.WebControls.GridView GridViewCommercial;
         
         /// <summary>
         /// LabelMessages control.

@@ -60,8 +60,7 @@
             </ul>
         </div>
               </nav>
-       <%--</div>--%> 
-  
+        <%--</div>--%>  
       
       
 
@@ -95,7 +94,8 @@
            <div class="col-3 jumbotron" style="margin-left:22px">
                <div class="row">
                    <div class="col">
-               <asp:Xml ID="Xml1" runat="server" DocumentSource="~/XMLCommercial.xml" TransformSource="~/XSLTCommercial.xslt"></asp:Xml>
+                       <asp:GridView ID="GridViewCommercial" runat="server">
+                       </asp:GridView>
            </div>
                               </div>
         </div>

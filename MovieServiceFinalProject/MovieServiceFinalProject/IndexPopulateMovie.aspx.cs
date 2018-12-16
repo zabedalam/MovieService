@@ -18,6 +18,7 @@ namespace MovieServiceFinalProject
     public partial class IndexPopulateMovie : System.Web.UI.Page
     {
         
+
         protected void Page_Load(object sender, EventArgs e)
         {
            if (!Page.IsPostBack)
@@ -26,7 +27,8 @@ namespace MovieServiceFinalProject
                  ListBoxPopulateMovie.AutoPostBack = true;
                 
             }
-             TransformXslt();
+            //TransformXslt();
+            showCommercial();
             
 
             showOnPageLoad();
@@ -197,7 +199,13 @@ namespace MovieServiceFinalProject
         {
 
         }
-       
+        public void showCommercial()
+        {
+            Commercial advertisement = new Commercial();
+            advertisement.commercialShow(GridViewCommercial);
+
+           }
+
     }
 }
     
