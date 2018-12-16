@@ -33,11 +33,22 @@
     </div>
        --%>
         <div class="row">
-            <div class="form-inline ml-auto col-sm-9" >
-                &nbsp;&nbsp;&nbsp;
-                 <asp:TextBox ID="TextBoxInput" class="form-control mr-2 shadow-lg" placeholder="search movie" runat="server" width="500px" Height="40px" OnTextChanged="TextBoxInput_TextChanged"></asp:TextBox>
-            <asp:Button ID="ButtonFindMovie" runat="server" Class="btn btn-outline-yellow-green "   Text="Search" OnClick="ButtonFindMovie_Click" Width="60px" Height="40px" font-size="14px"/>
+            <div class="col-3 d-flex">
+
+            </div>
+            <div class="col-5 d-flex" >
+
+           <%-- <div class="form-inline ml-auto col-sm-7" >--%>
+               
+                 <asp:TextBox ID="TextBoxInput" class="form-control mr-2 shadow-lg" placeholder="search movie" runat="server" Height="40px" OnTextChanged="TextBoxInput_TextChanged"></asp:TextBox>
+</div>            
+           <div class="col-4 d-flex" >
+            <%--<div class="form-inline ml-auto col-sm-3" >--%>
+               
+            
+                <asp:Button ID="ButtonFindMovie" runat="server" Class="btn btn-outline-yellow-green "   Text="Search" OnClick="ButtonFindMovie_Click" Width="60px" Height="40px" font-size="14px"/>
              </div>
+            
       </div>
  
        
@@ -60,23 +71,26 @@
             </ul>
         </div>
               </nav>
-        <%--</div>--%>  
-      
-      
+        <%--</div>--%>      
 
   <%--</div>--%>
-       
         <div class="row">
-                    <div class="col-2" style="margin-left:20px"> 
-                        <asp:Label ID="Label1" runat="server" Text="Select Movie" BorderStyle="None"></asp:Label>
+            <div class="col-2 text-light" >
+
+       <asp:Label ID="Label1" runat="server" Text="Select Movie" BorderStyle="None"></asp:Label>
+            </div>
+            </div>
+        <div class="row">
+                    <div class="col-2 d-flex" > 
+                        
                         <asp:ListBox ID="ListBoxPopulateMovie" runat="server" 
-                            OnSelectedIndexChanged="ListBoxPopulateMovie_SelectedIndexChanged" Height="430px" Width="210px">
+                            OnSelectedIndexChanged="ListBoxPopulateMovie_SelectedIndexChanged" Height="430px" >
                         </asp:ListBox>
                     </div>
-              <div class="col-3">              
+              <div class="col-3 d-flex">              
                    <asp:Image ID="ImagePoster" runat="server" DescriptionUrl="~/MyFiles/titanic.jpg" class="img-thumbnail shadow-lg" />
                </div>
-                <div class="col-3 jumbotron h-auto">
+                <div class="col-2 jumbotron h-auto">
                     <asp:Label ID="LabelMovieInfo" runat="server" Text="Movie Info" ></asp:Label>
              <br />
             <asp:Label ID="LabelRatings" runat="server" Text="Ratings" ></asp:Label>
@@ -91,11 +105,14 @@
             
                     </div>
                 
-           <div class="col-3 jumbotron" style="margin-left:22px">
+           
                <div class="row">
-                   <div class="col">
+                   <div class="col-3 text-warning d-flex">
                        <asp:GridView ID="GridViewCommercial" runat="server">
                        </asp:GridView>
+                       <%--<asp:Button ID="Button5" runat="server" OnClick="Button5_Click" Text="Button" />--%>
+                       <%--<asp:Button ID="Buttoncom" runat="server" OnClick="Buttoncom_Click1" Text="Button" />--%>
+                       <%--<asp:Button ID="ButtonCommercial" runat="server" OnClick="ButtonCommercial_Click" Text="Button" />--%>
            </div>
                               </div>
         </div>
@@ -105,20 +122,23 @@
             
             <br />
         <div class="row">
-        <div  class="embed-responsive embed-responsive-16by9 col-sm-12">
+            <div class="col-2"></div>
+
+        <div  class="embed-responsive embed-responsive-16by9 col-sm-8">
             
             <asp:Label ID="LabelMessages" runat="server" Text="No Messages"></asp:Label>
             <br />
-             <iframe id="youTubeTrailer" runat="server" width="320" height="240" frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen= "allowfullscreen"></iframe>
+             <iframe id="youTubeTrailer" runat="server"  frameborder="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen= "allowfullscreen"></iframe>
             <br />
             <asp:Label ID="LabelTralier" runat="server" Text="Tralier's status"></asp:Label>
                 
             </div>
             </div>
+         <div class="col-2"></div>
             <br />
         
             <br />
-            <div class="container repeaterDiv col-sm-12">
+            <div class="container repeaterDiv col-sm-12 text-info">
                 <asp:Label ID="LabelTopTen" runat="server" Text="Top Ten Movies"></asp:Label>
             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                  <HeaderTemplate>
@@ -133,7 +153,9 @@
                 
             </HeaderTemplate>
                  <ItemTemplate>
-                    <tr class="col-sm-2" style="display:inline-block;">
+                     
+                          
+                    <tr class="col-2" style="display:inline-block;">
                         <div class="wrapper">
                         
                         <%--<td class="myItem"><%#Eval("MovieName") %></td>--%>
@@ -146,7 +168,9 @@
                             <%--<img src="<%#Eval("Picture") %>" alt="Movie"/>--%></td>
 
                     </div>
+                        
                     </tr>
+                         </div>
 
                 </ItemTemplate>
                  <FooterTemplate>

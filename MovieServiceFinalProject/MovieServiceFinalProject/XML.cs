@@ -8,11 +8,7 @@ using Microsoft.SqlServer;
 using System.Xml;
 using Microsoft.SqlServer.Server;
 using System.Data;
-using System.Net;
-
-
-
-
+using System.Data.SqlClient;
 
 namespace MovieServiceFinalProject
 {
@@ -39,11 +35,12 @@ namespace MovieServiceFinalProject
         }
 
         public void Transform() {
-                FileStream fist = new FileStream(Destinationfile, FileMode.Create);
+                FileStream fist1 = new FileStream(Destinationfile, FileMode.Create);
                 XslCompiledTransform xct = new XslCompiledTransform();
                 xct.Load(Xsltfile);
-                xct.Transform(Sourcefile, null, fist);
-                fist.Close();
+                xct.Transform(Sourcefile, null, fist1);
+                fist1.Close();
             }
-        }
+       }
     }
+    

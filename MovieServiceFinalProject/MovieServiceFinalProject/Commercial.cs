@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
+using System.Xml;
+using System.Configuration;
 
 namespace MovieServiceFinalProject
 {
@@ -39,11 +41,18 @@ namespace MovieServiceFinalProject
             {
                 LabelMessages = "Nothing";
             }
+            
             finally
             {
                 conn.Close();
             }
 
+           // updateCommercial();
+        }
+        public void updateCommercial()
+        {
+           
+           
         }
     }
 }

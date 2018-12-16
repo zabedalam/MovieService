@@ -122,9 +122,7 @@
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Web.config" />
     <Content Include="XMLCommercial.xml" />
-    <Content Include="XSLTCommercial.xslt">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="XSLTCommercial.xslt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIConnection.cs" />

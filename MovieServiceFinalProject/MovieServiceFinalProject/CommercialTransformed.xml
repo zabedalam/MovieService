@@ -1,69 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<div style=" display: flex;   margin:15px; padding-left:2%; box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0., 0 6px 6px 0 rgba(0, 0, 0, .3); padding-bottom:5px; background-color: lightgreen;  width:20%" xmlns:c="http://my.company.com">
-  <div>
-    <p style="padding-top:15px; font-size:20px; font-weight:bold;">
-          Company Name: <span style="color:#ff0000">Yensid Tlaw</span><br /></p>
-    <p>
-          Website:
-          <a style="text-decoration: none" href=""><span style="color:#ff0000">www.myfantasy.com</span></a><br /></p>
-    <p>
-          Address: <span style="color:#ff0000">Yeti Street 48<br />Downtown<span>, </span>Farawayland</span><br /></p>
-    <p>
-          Telephone: <span style="color:#ff0000">(111) 22222222</span><br /></p>
-  </div>
-  <div style="padding-top:40px">
-    <p>
-          Logo: <span style="color:#ff0000"><img width="100px" height="100px" src="&#xA;                /logo/logo1.jpg" /></span><br /></p>
-  </div>
-</div>
-<div style=" display: flex;   margin:15px; padding-left:2%; box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0., 0 6px 6px 0 rgba(0, 0, 0, .3); padding-bottom:5px; background-color: lightgreen;  width:20%" xmlns:c="http://my.company.com">
-  <div>
-    <p style="padding-top:15px; font-size:20px; font-weight:bold;">
-          Company Name: <span style="color:#ff0000">Tinycomp</span><br /></p>
-    <p>
-          Website:
-          <a style="text-decoration: none" href=""><span style="color:#ff0000">www.myhugo.com</span></a><br /></p>
-    <p>
-          Address: <span style="color:#ff0000"><br /><span>, </span></span><br /></p>
-    <p>
-          Telephone: <span style="color:#ff0000"></span><br /></p>
-  </div>
-  <div style="padding-top:40px">
-    <p>
-          Logo: <span style="color:#ff0000"><img width="100px" height="100px" src="&#xA;                /logo/" /></span><br /></p>
-  </div>
-</div>
-<div style=" display: flex;   margin:15px; padding-left:2%; box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0., 0 6px 6px 0 rgba(0, 0, 0, .3); padding-bottom:5px; background-color: lightgreen;  width:20%" xmlns:c="http://my.company.com">
-  <div>
-    <p style="padding-top:15px; font-size:20px; font-weight:bold;">
-          Company Name: <span style="color:#ff0000">Cartoons</span><br /></p>
-    <p>
-          Website:
-          <a style="text-decoration: none" href=""><span style="color:#ff0000">www.lotsofcartoons.com</span></a><br /></p>
-    <p>
-          Address: <span style="color:#ff0000">Champs Elysees<br />Holte, Denmark<span>, </span></span><br /></p>
-    <p>
-          Telephone: <span style="color:#ff0000">55+ 66666666</span><br /></p>
-  </div>
-  <div style="padding-top:40px">
-    <p>
-          Logo: <span style="color:#ff0000"><img width="100px" height="100px" src="&#xA;                /logo/logo3.jpg" /></span><br /></p>
-  </div>
-</div>
-<div style=" display: flex;   margin:15px; padding-left:2%; box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0., 0 6px 6px 0 rgba(0, 0, 0, .3); padding-bottom:5px; background-color: lightgreen;  width:20%" xmlns:c="http://my.company.com">
-  <div>
-    <p style="padding-top:15px; font-size:20px; font-weight:bold;">
-          Company Name: <span style="color:#ff0000">Web Developers</span><br /></p>
-    <p>
-          Website:
-          <a style="text-decoration: none" href=""><span style="color:#ff0000">www.superstudents.com</span></a><br /></p>
-    <p>
-          Address: <span style="color:#ff0000"><br /><span>, </span></span><br /></p>
-    <p>
-          Telephone: <span style="color:#ff0000"></span><br /></p>
-  </div>
-  <div style="padding-top:40px">
-    <p>
-          Logo: <span style="color:#ff0000"><img width="100px" height="100px" src="&#xA;                /logo/logo4.jpg" /></span><br /></p>
-  </div>
-</div>
+<companyInfo xmlns:c="http://my.company.com">
+  <commercial class="ComId" id="1">
+    <CompanyName>Yensid Tlaw</CompanyName>
+    <Website>www.myfantasy.com</Website>
+    <Address>Yeti Street 48DowntownFarawayland</Address>
+    <Telephone>(111) 22222222</Telephone>
+    <CompanyLogo>logo1.jpg</CompanyLogo>
+  </commercial>
+  <commercial class="ComId" id="2">
+    <CompanyName>Tinycomp</CompanyName>
+    <Website>www.myhugo.com</Website>
+    <Address></Address>
+    <Telephone></Telephone>
+    <CompanyLogo></CompanyLogo>
+  </commercial>
+  <commercial class="ComId" id="3">
+    <CompanyName>Cartoons</CompanyName>
+    <Website>www.lotsofcartoons.com</Website>
+    <Address>Champs ElyseesHolte, Denmark</Address>
+    <Telephone>55+ 66666666</Telephone>
+    <CompanyLogo>logo3.jpg</CompanyLogo>
+  </commercial>
+  <commercial class="ComId" id="4">
+    <CompanyName>Web Developers</CompanyName>
+    <Website>www.superstudents.com</Website>
+    <Address></Address>
+    <Telephone></Telephone>
+    <CompanyLogo>logo4.jpg</CompanyLogo>
+  </commercial>
+</companyInfo>
