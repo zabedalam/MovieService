@@ -26,7 +26,8 @@ namespace MovieServiceFinalProject
                  ListBoxPopulateMovie.AutoPostBack = true;
                 
             }
-            TransformXslt();
+             TransformXslt();
+            
 
             showOnPageLoad();
         }
@@ -71,7 +72,7 @@ namespace MovieServiceFinalProject
                     string id = node.SelectSingleNode("@poster").InnerText;
                     ImagePoster.ImageUrl = id;
                 }
-                
+
                 var Title = nodelist[0].SelectSingleNode("@title").InnerText;
                 var ImageLink = nodelist[0].SelectSingleNode("@poster").InnerText;
                 var Year = nodelist[0].SelectSingleNode("@year").InnerText;
@@ -192,10 +193,11 @@ namespace MovieServiceFinalProject
             xslt1.Transform();
         }
 
-       protected void TextBoxInput_TextChanged(object sender, EventArgs e)
+        protected void TextBoxInput_TextChanged(object sender, EventArgs e)
         {
 
         }
+       
     }
 }
     

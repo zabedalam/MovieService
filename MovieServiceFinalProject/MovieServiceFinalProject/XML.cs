@@ -18,6 +18,9 @@ namespace MovieServiceFinalProject
 {
     public class XML
     {
+        private string v1;
+        private string v2;
+
         private string Sourcefile { get; set; }
         private string Xsltfile { get; set; }
         private string Destinationfile { get; set; }
@@ -28,7 +31,14 @@ namespace MovieServiceFinalProject
             this.Xsltfile = xslt;
             this.Destinationfile = destination;
         }
-     public void Transform() {
+
+        public XML(string v1, string v2)
+        {
+            this.v1 = v1;
+            this.v2 = v2;
+        }
+
+        public void Transform() {
                 FileStream fist = new FileStream(Destinationfile, FileMode.Create);
                 XslCompiledTransform xct = new XslCompiledTransform();
                 xct.Load(Xsltfile);
